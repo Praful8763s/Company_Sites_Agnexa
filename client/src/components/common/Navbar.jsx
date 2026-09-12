@@ -237,7 +237,7 @@ export default function Navbar() {
 
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center space-x-3">
-            {user ? (
+            {user && (
               <div className="flex items-center space-x-2">
                 {isAdmin ? (
                   <Link
@@ -263,23 +263,6 @@ export default function Navbar() {
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
-              </div>
-            ) : (
-              <div className="flex items-center space-x-1.5">
-                <Link
-                  to="/register"
-                  className="px-3 py-2 text-xs font-semibold text-agnexa-orange-400 hover:text-white transition-colors flex items-center space-x-1.5"
-                >
-                  <UserPlus className="w-3.5 h-3.5" />
-                  <span>Register</span>
-                </Link>
-                <Link
-                  to="/login"
-                  className="px-3 py-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors flex items-center space-x-1.5"
-                >
-                  <LogIn className="w-3.5 h-3.5" />
-                  <span>Sign In</span>
-                </Link>
               </div>
             )}
 
@@ -361,7 +344,7 @@ export default function Navbar() {
           ))}
 
           <div className="pt-4 border-t border-white/10 flex flex-col space-y-2">
-            {user ? (
+            {user && (
               <>
                 <Link
                   to={isAdmin ? "/admin" : "/dashboard"}
@@ -376,23 +359,6 @@ export default function Navbar() {
                   Sign Out
                 </button>
               </>
-            ) : (
-              <div className="grid grid-cols-2 gap-2">
-                <Link
-                  to="/register"
-                  className="py-2.5 rounded-xl bg-agnexa-orange-500/20 text-agnexa-orange-400 border border-agnexa-orange-500/40 text-center text-sm font-semibold hover:bg-agnexa-orange-500 hover:text-white transition-all flex items-center justify-center space-x-1"
-                >
-                  <UserPlus className="w-4 h-4" />
-                  <span>Register</span>
-                </Link>
-                <Link
-                  to="/login"
-                  className="py-2.5 rounded-xl bg-white/5 border border-white/10 text-center text-sm font-semibold text-white hover:bg-white/10 transition-all flex items-center justify-center space-x-1"
-                >
-                  <LogIn className="w-4 h-4" />
-                  <span>Sign In</span>
-                </Link>
-              </div>
             )}
             <Link
               to="/contact"
