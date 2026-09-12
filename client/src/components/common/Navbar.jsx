@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
+import ServiceLogo from './ServiceLogos';
 
 const servicesList = [
   {
@@ -197,15 +198,14 @@ export default function Navbar() {
                   </div>
 
                   {servicesList.map((srv) => {
-                    const Icon = srv.icon;
                     return (
                       <Link
                         key={srv.slug}
                         to={`/services/${srv.slug}`}
                         className="p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all group flex items-start space-x-3"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-agnexa-navy-800 border border-slate-200 dark:border-white/10 flex items-center justify-center text-agnexa-blue-600 dark:text-agnexa-blue-400 group-hover:text-white group-hover:bg-agnexa-blue-600 transition-colors shrink-0">
-                          <Icon className="w-4 h-4" />
+                        <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-agnexa-navy-800 border border-slate-200 dark:border-white/10 flex items-center justify-center p-2 group-hover:scale-110 group-hover:shadow-md transition-all shrink-0">
+                          <ServiceLogo slug={srv.slug} className="w-6 h-6 object-contain" />
                         </div>
                         <div>
                           <div className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-agnexa-blue-600 dark:group-hover:text-agnexa-blue-400 transition-colors leading-tight">
@@ -350,9 +350,12 @@ export default function Navbar() {
                   <Link
                     key={srv.slug}
                     to={`/services/${srv.slug}`}
-                    className="block py-1.5 text-sm font-medium text-slate-700 hover:text-agnexa-blue-600 dark:text-slate-300 dark:hover:text-agnexa-blue-400"
+                    className="flex items-center space-x-2.5 py-1.5 text-sm font-medium text-slate-700 hover:text-agnexa-blue-600 dark:text-slate-300 dark:hover:text-agnexa-blue-400"
                   >
-                    {srv.title}
+                    <div className="w-6 h-6 shrink-0 flex items-center justify-center">
+                      <ServiceLogo slug={srv.slug} className="w-5 h-5 object-contain" />
+                    </div>
+                    <span>{srv.title}</span>
                   </Link>
                 ))}
               </div>

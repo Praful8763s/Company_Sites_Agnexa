@@ -1,30 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowUpRight, Code2, Globe, Smartphone, Sparkles, Cloud, 
-  BarChart3, ShieldCheck, Palette, Compass, Layout, HardDrive, Server,
-  FileSpreadsheet, Table
-} from 'lucide-react';
-
-const iconMap = {
-  Code2,
-  Globe,
-  Smartphone,
-  Sparkles,
-  Cloud,
-  BarChart3,
-  ShieldCheck,
-  Palette,
-  Compass,
-  Layout,
-  HardDrive,
-  Server,
-  FileSpreadsheet,
-  Table
-};
+import { ArrowUpRight } from 'lucide-react';
+import ServiceLogo from '../common/ServiceLogos';
 
 export default function ServiceCard({ service, index = 0 }) {
-  const IconComponent = iconMap[service.icon] || Code2;
   const isAccent = index % 3 === 1;
 
   return (
@@ -38,23 +17,19 @@ export default function ServiceCard({ service, index = 0 }) {
 
       <div>
         <div className="flex items-center justify-between mb-6">
-          <div className={`w-13 h-13 p-3.5 rounded-2xl border flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg ${
-            isAccent 
-              ? 'bg-agnexa-orange-500/10 border-agnexa-orange-500/30 text-agnexa-orange-400 group-hover:bg-agnexa-orange-500 group-hover:text-white' 
-              : 'bg-agnexa-blue-500/10 border-agnexa-blue-500/30 text-agnexa-blue-400 group-hover:bg-agnexa-blue-500 group-hover:text-white'
-          }`}>
-            <IconComponent className="w-6 h-6" />
+          <div className="w-14 h-14 p-2.5 rounded-2xl bg-white dark:bg-agnexa-navy-800 border border-slate-200 dark:border-white/10 flex items-center justify-center transition-transform group-hover:scale-110 shadow-md">
+            <ServiceLogo slug={service.slug} icon={service.icon} className="w-8 h-8 object-contain" />
           </div>
-          <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
+          <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
             {service.category}
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-white group-hover:text-agnexa-blue-300 transition-colors leading-tight">
+        <h3 className="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-agnexa-blue-600 dark:group-hover:text-agnexa-blue-400 transition-colors leading-tight">
           {service.title}
         </h3>
 
-        <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+        <p className="text-slate-700 dark:text-slate-300 text-sm mt-3 leading-relaxed font-normal">
           {service.tagline}
         </p>
 

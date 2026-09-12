@@ -7,6 +7,7 @@ import {
 import { servicesApi, portfolioApi } from '../services/api';
 import ProjectCard from '../components/cards/ProjectCard';
 import SEO from '../components/common/SEO';
+import ServiceLogo from '../components/common/ServiceLogos';
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -92,15 +93,20 @@ export default function ServiceDetail() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 space-y-5">
-            <span className="inline-block px-3.5 py-1.5 rounded-full bg-agnexa-blue-500/10 border border-agnexa-blue-500/30 text-xs font-bold text-agnexa-blue-400 uppercase tracking-widest">
-              {service.category}
-            </span>
+            <div className="flex items-center space-x-3.5">
+              <div className="w-14 h-14 p-2.5 rounded-2xl bg-white dark:bg-agnexa-navy-800 border border-slate-200 dark:border-white/10 flex items-center justify-center shadow-lg">
+                <ServiceLogo slug={service.slug} icon={service.icon} className="w-9 h-9 object-contain" />
+              </div>
+              <span className="inline-block px-3.5 py-1.5 rounded-full bg-agnexa-blue-500/10 border border-agnexa-blue-500/30 text-xs font-bold text-agnexa-blue-600 dark:text-agnexa-blue-400 uppercase tracking-widest">
+                {service.category}
+              </span>
+            </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
               {service.title}
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl">
+            <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl font-normal">
               {service.tagline}
             </p>
 

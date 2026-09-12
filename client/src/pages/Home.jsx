@@ -368,7 +368,7 @@ export default function Home() {
             to="/services"
             className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-semibold transition-all group"
           >
-            <span>View detailed architectural breakdown of all 9 services</span>
+            <span>View detailed architectural breakdown of all 10 enterprise services</span>
             <ChevronRight className="w-4 h-4 text-agnexa-orange-400 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
