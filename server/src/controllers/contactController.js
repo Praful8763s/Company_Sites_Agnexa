@@ -1,4 +1,5 @@
 import { dbStore } from '../config/db.js';
+import { sendContactNotification, sendClientAutoReply } from '../services/emailService.js';
 
 export const createContact = async (req, res) => {
   try {
@@ -31,9 +32,13 @@ export const createContact = async (req, res) => {
       status: 'New'
     });
 
+    // Dispatch email notifications asynchronously to prafulsonwane58@gmail.com
+    sendContactNotification(newContact).catch(err => console.warn('Email dispatch warning:', err.message));
+    sendClientAutoReply(newContact).catch(err => console.warn('Auto-reply dispatch warning:', err.message));
+
     res.status(201).json({
       success: true,
-      message: 'Thank you for reaching out to Agnexa Technologies. Our enterprise solutions architect will contact you within 24 hours.',
+      message: 'Thank you for reaching out to Agnexa Technologies. Your inquiry has been sent to our solutions architect and we will contact you within 24 hours.',
       contact: newContact
     });
   } catch (error) {

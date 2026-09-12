@@ -1,4 +1,5 @@
 import { dbStore } from '../config/db.js';
+import { sendApplicationNotification } from '../services/emailService.js';
 
 export const submitApplication = async (req, res) => {
   try {
@@ -21,6 +22,9 @@ export const submitApplication = async (req, res) => {
       resumeNotes: (resumeNotes || '').trim(),
       status: 'Reviewing'
     });
+
+    // Dispatch email notification to prafulsonwane58@gmail.com
+    sendApplicationNotification(application).catch(err => console.warn('App email dispatch warning:', err.message));
 
     res.status(201).json({
       success: true,
