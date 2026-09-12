@@ -121,15 +121,15 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-agnexa-navy-950/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3.5' 
-        : 'bg-transparent py-5'
+        ? 'bg-white/95 dark:bg-agnexa-navy-950/90 backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-md py-3.5' 
+        : 'bg-white/70 dark:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border-b border-slate-200/50 dark:border-transparent py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/5 border border-white/10 p-1 flex items-center justify-center transition-transform group-hover:scale-105 shadow-neon-blue">
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-1 flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm dark:shadow-neon-blue">
               <img 
                 src="/logo.png" 
                 alt="Agnexa Technologies" 
@@ -137,10 +137,10 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-wider text-white font-sans flex items-center">
+              <span className="font-extrabold text-xl tracking-wider text-slate-900 dark:text-white font-sans flex items-center">
                 AGNEX<span className="text-agnexa-orange-500">A</span>
               </span>
-              <span className="text-[10px] tracking-[0.25em] text-slate-400 font-medium uppercase -mt-1 group-hover:text-agnexa-blue-400 transition-colors">
+              <span className="text-[10px] tracking-[0.25em] text-slate-500 dark:text-slate-400 font-medium uppercase -mt-1 group-hover:text-agnexa-blue-600 dark:group-hover:text-agnexa-blue-400 transition-colors">
                 Ideas to Impact
               </span>
             </div>
@@ -151,10 +151,10 @@ export default function Navbar() {
             
             <Link 
               to="/about" 
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+              className={`px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
                 location.pathname === '/about' 
-                  ? 'text-agnexa-blue-400 bg-white/5' 
-                  : 'text-slate-300 hover:text-white hover:bg-white/5'
+                  ? 'text-agnexa-blue-600 dark:text-agnexa-blue-400 bg-slate-100 dark:bg-white/5' 
+                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5'
               }`}
             >
               About
@@ -166,30 +166,30 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                 onMouseEnter={() => setServicesDropdownOpen(true)}
-                className={`px-3 py-2 text-sm font-medium rounded-lg flex items-center space-x-1 transition-colors ${
+                className={`px-3 py-2 text-sm font-semibold rounded-lg flex items-center space-x-1 transition-colors ${
                   location.pathname.startsWith('/services') 
-                    ? 'text-agnexa-blue-400 bg-white/5' 
-                    : 'text-slate-300 hover:text-white hover:bg-white/5'
+                    ? 'text-agnexa-blue-600 dark:text-agnexa-blue-400 bg-slate-100 dark:bg-white/5' 
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5'
                 }`}
               >
                 <span>Services</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-agnexa-blue-400' : ''}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-agnexa-blue-600 dark:text-agnexa-blue-400' : ''}`} />
               </button>
 
               {/* Mega-Menu Dropdown */}
               {servicesDropdownOpen && (
                 <div 
                   onMouseLeave={() => setServicesDropdownOpen(false)}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[780px] bg-agnexa-navy-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-6 grid grid-cols-3 gap-4 z-50 animate-in fade-in zoom-in-95 duration-150"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[780px] bg-white dark:bg-agnexa-navy-900/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl p-6 grid grid-cols-3 gap-4 z-50 animate-in fade-in zoom-in-95 duration-150"
                 >
-                  <div className="col-span-3 pb-3 border-b border-white/10 flex items-center justify-between">
+                  <div className="col-span-3 pb-3 border-b border-slate-200 dark:border-white/10 flex items-center justify-between">
                     <div>
-                      <h4 className="text-xs uppercase tracking-widest text-agnexa-blue-400 font-semibold">Specialized IT Capabilities</h4>
-                      <p className="text-xs text-slate-400 mt-0.5">End-to-end engineering, cloud modernization, and artificial intelligence</p>
+                      <h4 className="text-xs uppercase tracking-widest text-agnexa-blue-600 dark:text-agnexa-blue-400 font-bold">Specialized IT Capabilities</h4>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 font-medium">End-to-end engineering, cloud modernization, and artificial intelligence</p>
                     </div>
                     <Link 
                       to="/services" 
-                      className="text-xs font-semibold text-agnexa-orange-400 hover:text-agnexa-orange-300 flex items-center space-x-1 group"
+                      className="text-xs font-semibold text-agnexa-orange-600 dark:text-agnexa-orange-400 hover:text-agnexa-orange-700 dark:hover:text-agnexa-orange-300 flex items-center space-x-1 group"
                     >
                       <span>Explore All Services</span>
                       <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -202,16 +202,16 @@ export default function Navbar() {
                       <Link
                         key={srv.slug}
                         to={`/services/${srv.slug}`}
-                        className="p-3 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 transition-all group flex items-start space-x-3"
+                        className="p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all group flex items-start space-x-3"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-agnexa-navy-800 border border-white/10 flex items-center justify-center text-agnexa-blue-400 group-hover:text-white group-hover:bg-agnexa-blue-500 transition-colors shrink-0">
+                        <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-agnexa-navy-800 border border-slate-200 dark:border-white/10 flex items-center justify-center text-agnexa-blue-600 dark:text-agnexa-blue-400 group-hover:text-white group-hover:bg-agnexa-blue-600 transition-colors shrink-0">
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-sm font-semibold text-white group-hover:text-agnexa-blue-400 transition-colors leading-tight">
+                          <div className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-agnexa-blue-600 dark:group-hover:text-agnexa-blue-400 transition-colors leading-tight">
                             {srv.title}
                           </div>
-                          <div className="text-xs text-slate-400 mt-1 line-clamp-1 leading-snug">
+                          <div className="text-xs text-slate-600 dark:text-slate-400 mt-1 line-clamp-1 leading-snug font-normal">
                             {srv.tagline}
                           </div>
                         </div>
@@ -226,10 +226,10 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
                   location.pathname === link.path 
-                    ? 'text-agnexa-blue-400 bg-white/5' 
-                    : 'text-slate-300 hover:text-white hover:bg-white/5'
+                    ? 'text-agnexa-blue-600 dark:text-agnexa-blue-400 bg-slate-100 dark:bg-white/5' 
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5'
                 }`}
               >
                 {link.name}
@@ -273,13 +273,13 @@ export default function Navbar() {
               type="button"
               onClick={toggleTheme}
               title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
-              className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-agnexa-blue-400/50 hover:bg-white/10 transition-all flex items-center justify-center text-slate-300 hover:text-white"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-agnexa-blue-400/50 hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
               aria-label="Toggle Theme"
             >
               {isDark ? (
                 <Sun className="w-4 h-4 text-amber-400" />
               ) : (
-                <Moon className="w-4 h-4 text-agnexa-blue-500" />
+                <Moon className="w-4 h-4 text-agnexa-blue-600" />
               )}
             </button>
 
@@ -301,20 +301,20 @@ export default function Navbar() {
               type="button"
               onClick={toggleTheme}
               title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
-              className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
+              className="p-2 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
               aria-label="Toggle Theme"
             >
-              {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-agnexa-blue-500" />}
+              {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-agnexa-blue-600" />}
             </button>
             <Link
               to="/contact"
-              className="px-3 py-1.5 rounded-lg bg-agnexa-blue-500 text-white text-xs font-bold"
+              className="px-3 py-1.5 rounded-lg bg-agnexa-blue-600 text-white text-xs font-bold shadow-sm"
             >
               Start
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white focus:outline-none"
+              className="p-2 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -326,10 +326,10 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-agnexa-navy-950/98 backdrop-blur-2xl border-b border-white/10 px-4 pt-3 pb-8 space-y-3 animate-in slide-in-from-top duration-200">
+        <div className="lg:hidden bg-white/98 dark:bg-agnexa-navy-950/98 backdrop-blur-2xl border-b border-slate-200 dark:border-white/10 px-4 pt-3 pb-8 space-y-3 animate-in slide-in-from-top duration-200 shadow-xl">
           <Link
             to="/about"
-            className="block py-2 text-base font-medium text-slate-200 hover:text-agnexa-blue-400"
+            className="block py-2 text-base font-semibold text-slate-800 hover:text-agnexa-blue-600 dark:text-slate-200 dark:hover:text-agnexa-blue-400"
           >
             About Us
           </Link>
@@ -338,19 +338,19 @@ export default function Navbar() {
           <div>
             <button
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="w-full flex items-center justify-between py-2 text-base font-medium text-slate-200 hover:text-agnexa-blue-400"
+              className="w-full flex items-center justify-between py-2 text-base font-semibold text-slate-800 hover:text-agnexa-blue-600 dark:text-slate-200 dark:hover:text-agnexa-blue-400"
             >
               <span>Services</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180 text-agnexa-blue-400' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180 text-agnexa-blue-600 dark:text-agnexa-blue-400' : ''}`} />
             </button>
 
             {mobileServicesOpen && (
-              <div className="pl-4 pr-2 py-2 space-y-2 border-l border-white/10 mt-1">
+              <div className="pl-4 pr-2 py-2 space-y-2 border-l border-slate-200 dark:border-white/10 mt-1">
                 {servicesList.map((srv) => (
                   <Link
                     key={srv.slug}
                     to={`/services/${srv.slug}`}
-                    className="block py-1.5 text-sm text-slate-300 hover:text-agnexa-blue-400"
+                    className="block py-1.5 text-sm font-medium text-slate-700 hover:text-agnexa-blue-600 dark:text-slate-300 dark:hover:text-agnexa-blue-400"
                   >
                     {srv.title}
                   </Link>
@@ -363,24 +363,24 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              className="block py-2 text-base font-medium text-slate-200 hover:text-agnexa-blue-400"
+              className="block py-2 text-base font-semibold text-slate-800 hover:text-agnexa-blue-600 dark:text-slate-200 dark:hover:text-agnexa-blue-400"
             >
               {link.name}
             </Link>
           ))}
 
-          <div className="pt-4 border-t border-white/10 flex flex-col space-y-2">
+          <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-col space-y-2">
             {user && (
               <>
                 <Link
                   to={isAdmin ? "/admin" : "/dashboard"}
-                  className="w-full py-2.5 rounded-xl bg-agnexa-navy-800 text-center text-sm font-semibold text-white border border-white/10"
+                  className="w-full py-2.5 rounded-xl bg-slate-100 dark:bg-agnexa-navy-800 text-center text-sm font-semibold text-slate-900 dark:text-white border border-slate-200 dark:border-white/10"
                 >
                   {isAdmin ? 'Admin Console' : 'My Dashboard'}
                 </Link>
                 <button
                   onClick={logout}
-                  className="w-full py-2.5 rounded-xl bg-red-500/20 text-red-400 text-center text-sm font-semibold"
+                  className="w-full py-2.5 rounded-xl bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 text-center text-sm font-semibold"
                 >
                   Sign Out
                 </button>
@@ -389,17 +389,17 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              className="w-full py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-200 text-sm font-semibold flex items-center justify-between hover:bg-white/10 transition-all"
+              className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 text-sm font-semibold flex items-center justify-between hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
             >
               <span className="flex items-center space-x-2">
-                {isDark ? <Moon className="w-4 h-4 text-agnexa-blue-400" /> : <Sun className="w-4 h-4 text-amber-400" />}
+                {isDark ? <Moon className="w-4 h-4 text-agnexa-blue-400" /> : <Sun className="w-4 h-4 text-amber-500" />}
                 <span>{isDark ? 'Dark Mode' : 'Light Mode'}</span>
               </span>
-              <span className="text-xs text-agnexa-blue-400 font-bold uppercase tracking-wider">Switch Theme</span>
+              <span className="text-xs text-agnexa-blue-600 dark:text-agnexa-blue-400 font-bold uppercase tracking-wider">Switch Theme</span>
             </button>
             <Link
               to="/contact"
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-agnexa-blue-500 to-agnexa-orange-500 text-center text-sm font-bold text-white shadow-neon-blue"
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-agnexa-blue-500 to-agnexa-orange-500 text-center text-sm font-bold text-white shadow-md"
             >
               Start a Project
             </Link>

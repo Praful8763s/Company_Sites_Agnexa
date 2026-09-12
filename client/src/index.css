@@ -165,26 +165,54 @@ html:not(.dark) .glass-card-orange:hover {
 }
 
 /* Background Color Adaptations for Light Mode */
-html:not(.dark) .bg-agnexa-navy-950,
-html:not(.dark) .bg-agnexa-navy-950\/90,
-html:not(.dark) .bg-agnexa-navy-950\/80 { background-color: #FFFFFF !important; }
-html:not(.dark) .bg-agnexa-navy-900,
-html:not(.dark) .bg-agnexa-navy-900\/90,
-html:not(.dark) .bg-agnexa-navy-900\/80,
-html:not(.dark) .bg-agnexa-navy-900\/50,
-html:not(.dark) .bg-agnexa-navy-900\/40,
-html:not(.dark) .bg-agnexa-navy-900\/30 { background-color: #F8FAFC !important; }
-html:not(.dark) .bg-agnexa-navy-850,
-html:not(.dark) .bg-agnexa-navy-850\/80 { background-color: #F1F5F9 !important; }
-html:not(.dark) .bg-agnexa-navy-800 { background-color: #E2E8F0 !important; }
-html:not(.dark) .bg-agnexa-navy-700 { background-color: #CBD5E1 !important; }
-html:not(.dark) .bg-white\/5 { background-color: rgba(241, 245, 249, 0.95) !important; }
-html:not(.dark) .bg-white\/10 { background-color: rgba(226, 232, 240, 0.95) !important; }
+html:not(.dark) [class*="bg-agnexa-navy"],
+html.light [class*="bg-agnexa-navy"] { background-color: #FFFFFF !important; }
+
+html:not(.dark) [class*="bg-agnexa-navy-950"],
+html.light [class*="bg-agnexa-navy-950"] { background-color: #FFFFFF !important; }
+
+html:not(.dark) [class*="bg-agnexa-navy-900"],
+html.light [class*="bg-agnexa-navy-900"] { background-color: #FFFFFF !important; }
+
+html:not(.dark) [class*="bg-agnexa-navy-850"],
+html.light [class*="bg-agnexa-navy-850"] { background-color: #F8FAFC !important; }
+
+html:not(.dark) [class*="bg-agnexa-navy-800"],
+html.light [class*="bg-agnexa-navy-800"] { background-color: #F1F5F9 !important; }
+
+html:not(.dark) [class*="bg-agnexa-navy-700"],
+html.light [class*="bg-agnexa-navy-700"] { background-color: #E2E8F0 !important; }
+
+html:not(.dark) [class*="bg-white/5"],
+html.light [class*="bg-white/5"] { background-color: rgba(241, 245, 249, 0.95) !important; }
+
+html:not(.dark) [class*="bg-white/10"],
+html.light [class*="bg-white/10"] { background-color: rgba(226, 232, 240, 0.95) !important; }
+
+html:not(.dark) [class*="bg-white/15"],
+html.light [class*="bg-white/15"] { background-color: rgba(226, 232, 240, 0.95) !important; }
+
+/* Gradient Adaptations for Light Mode */
+html:not(.dark) [class*="from-agnexa-navy"],
+html.light [class*="from-agnexa-navy"] {
+  --tw-gradient-from: #FFFFFF !important;
+  --tw-gradient-to: rgb(255 255 255 / 0) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+html:not(.dark) [class*="via-agnexa-navy"],
+html.light [class*="via-agnexa-navy"] {
+  --tw-gradient-stops: var(--tw-gradient-from), #F8FAFC, var(--tw-gradient-to) !important;
+}
+
+html:not(.dark) [class*="to-agnexa-navy"],
+html.light [class*="to-agnexa-navy"] {
+  --tw-gradient-to: #FFFFFF !important;
+}
 
 /* Border Adaptations */
-html:not(.dark) .border-white\/10,
-html:not(.dark) .border-white\/15,
-html:not(.dark) .border-white\/5 {
+html:not(.dark) [class*="border-white/"],
+html.light [class*="border-white/"] {
   border-color: rgba(203, 213, 225, 0.8) !important;
 }
 

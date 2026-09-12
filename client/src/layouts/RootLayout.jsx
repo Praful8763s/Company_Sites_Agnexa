@@ -5,7 +5,7 @@ import Footer from '../components/common/Footer';
 
 export default function RootLayout() {
   return (
-    <div className="flex flex-col min-h-screen bg-agnexa-navy-950 text-slate-100">
+    <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-agnexa-navy-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
       <Navbar />
       <main className="flex-grow">
         <Outlet />
