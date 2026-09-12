@@ -130,27 +130,50 @@ export default function BlogDetail() {
         </div>
 
         {/* Content Body */}
-        <div className="text-slate-200 text-sm sm:text-base leading-relaxed space-y-6 font-normal">
+        <div className="text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed space-y-6 font-normal">
           {blog.content.split('\n\n').map((paragraph, index) => {
-            if (paragraph.startsWith('### ')) {
+            // Remove any *** or ** markdown asterisks completely
+            const cleanParagraph = paragraph
+              .replace(/\*\*\*/g, '')
+              .replace(/\*\*/g, '')
+              .trim();
+
+            if (cleanParagraph.startsWith('### ')) {
               return (
-                <h3 key={index} className="text-2xl font-bold text-white pt-6 pb-2 text-gradient-blue">
-                  {paragraph.replace('### ', '')}
+                <h3 key={index} className="text-2xl font-bold text-slate-900 dark:text-white pt-6 pb-2 text-gradient-blue">
+                  {cleanParagraph.replace('### ', '')}
                 </h3>
               );
             }
-            if (paragraph.startsWith('* ')) {
+            if (cleanParagraph.startsWith('* ') || cleanParagraph.includes('\n* ')) {
+              const items = cleanParagraph
+                .split('\n')
+                .filter(l => l.trim().startsWith('* '))
+                .map(l => l.replace(/^\*\s*/, '').trim());
               return (
-                <ul key={index} className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base">
-                  {paragraph.split('\n').map((li, i) => (
-                    <li key={i}>{li.replace('* ', '')}</li>
+                <ul key={index} className="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                  {items.map((li, i) => (
+                    <li key={i}>{li}</li>
                   ))}
                 </ul>
               );
             }
+            if (/^\d+\.\s/.test(cleanParagraph)) {
+              const items = cleanParagraph
+                .split('\n')
+                .filter(l => /^\d+\.\s/.test(l.trim()))
+                .map(l => l.replace(/^\d+\.\s*/, '').trim());
+              return (
+                <ol key={index} className="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                  {items.map((li, i) => (
+                    <li key={i}>{li}</li>
+                  ))}
+                </ol>
+              );
+            }
             return (
-              <p key={index} className="text-slate-300 leading-relaxed">
-                {paragraph}
+              <p key={index} className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                {cleanParagraph}
               </p>
             );
           })}

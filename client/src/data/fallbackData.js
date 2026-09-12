@@ -399,23 +399,23 @@ export const fallbackBlogs = [
     relatedProject: 'mediconnect-telehealth-platform',
     content: `### The Challenge: Sub-Second Encrypted Telehealth at Scale
 
-When engineering **MediConnect**, the primary objective was establishing a resilient medical consultation platform that complied with strict HIPAA security requirements while supporting over 10,000 simultaneous video sessions across 45 clinics with zero latency drops.
+When engineering MediConnect, the primary objective was establishing a resilient medical consultation platform that complied with strict HIPAA security requirements while supporting over 10,000 simultaneous video sessions across 45 clinics with zero latency drops.
 
 ### Architectural Blueprint
 
-1. **Signaling & Selective Forwarding Units (SFU)**:
-   Rather than peer-to-peer mesh networks which overload mobile bandwidth, we architected an elastic cluster of MediaSoup / Janus SFU servers that negotiate WebRTC streams with minimal client CPU overhead.
+1. Signaling & Selective Forwarding Units (SFU):
+Rather than peer-to-peer mesh networks which overload mobile bandwidth, we architected an elastic cluster of MediaSoup / Janus SFU servers that negotiate WebRTC streams with minimal client CPU overhead.
 
-2. **End-to-End Encryption (E2EE)**:
-   All audio and video channels utilize SRTP encryption with dynamic session keys generated per consultation room. No plaintext media ever touches intermediate relay proxies.
+2. End-to-End Encryption (E2EE):
+All audio and video channels utilize SRTP encryption with dynamic session keys generated per consultation room. No plaintext media ever touches intermediate relay proxies.
 
-3. **Synchronous HL7/FHIR Health Record Linking**:
-   While doctors conduct consultations, diagnostic prescriptions and medical notes are bound into an event stream that reconciles directly with existing hospital EHR systems using Kafka microservices.
+3. Synchronous HL7/FHIR Health Record Linking:
+While doctors conduct consultations, diagnostic prescriptions and medical notes are bound into an event stream that reconciles directly with existing hospital EHR systems using Kafka microservices.
 
 ### Quantifiable Results
-* **99.98% Uptime SLA** maintained across 6 consecutive quarters.
-* **Patient wait times decreased by 42%** through automated doctor availability scheduling algorithms.
-* **4.9 / 5** average user rating across 100,000+ completed telemedicine consultations.`,
+* 99.98% Uptime SLA maintained across 6 consecutive quarters.
+* Patient wait times decreased by 42% through automated doctor availability scheduling algorithms.
+* 4.9 / 5 average user rating across 100,000+ completed telemedicine consultations.`,
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
     tags: ['MediConnect', 'Healthcare', 'WebRTC', 'React', 'HIPAA', 'Case Study']
   },
@@ -436,18 +436,18 @@ Modern institutional investors manage diversified portfolios spanning stocks, cr
 
 ### The FinEdge Solution Architecture
 
-1. **Sub-80ms Streaming with TimescaleDB & WebSockets**:
-   By implementing TimescaleDB hypertables partitioned by time interval and stock ticker, along with distributed WebSocket channels, tick-by-tick price recalculations stream to investor dashboards in under 80 milliseconds.
+1. Sub-80ms Streaming with TimescaleDB & WebSockets:
+By implementing TimescaleDB hypertables partitioned by time interval and stock ticker, along with distributed WebSocket channels, tick-by-tick price recalculations stream to investor dashboards in under 80 milliseconds.
 
-2. **Automated Tax-Loss Harvesting Engine**:
-   Background Go microservices analyze tax-lot distributions daily, automatically alerting portfolio managers when offsetting short-term capital gains against depreciated positions is optimal.
+2. Automated Tax-Loss Harvesting Engine:
+Background Go microservices analyze tax-lot distributions daily, automatically alerting portfolio managers when offsetting short-term capital gains against depreciated positions is optimal.
 
-3. **Military-Grade Security & Biometric MFA**:
-   With over $450M in platform assets, security was designed with zero trust: cryptographic session tokens, biometric TouchID/FaceID web auth challenges, and automated immutable audit logs.
+3. Military-Grade Security & Biometric MFA:
+With over $450M in platform assets, security was designed with zero trust: cryptographic session tokens, biometric TouchID/FaceID web auth challenges, and automated immutable audit logs.
 
 ### Key Milestones
-* **$450M+ in assets** monitored with 100% financial transaction accuracy.
-* **Zero reported security vulnerabilities** through comprehensive third-party penetration testing.`,
+* $450M+ in assets monitored with 100% financial transaction accuracy.
+* Zero reported security vulnerabilities through comprehensive third-party penetration testing.`,
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
     tags: ['FinEdge', 'FinTech', 'TimescaleDB', 'WebSockets', 'Go', 'Case Study']
   },
@@ -468,21 +468,18 @@ Our client, a multinational corporate advisory group, possessed over 2 million c
 
 ### The NeuralOps Architecture
 
-1. **On-Premise Private Inference**:
-   We deployed containerized open-weights LLMs (Llama 3 70B quantized) on air-gapped GPU clusters with strict perimeter firewalling. Zero bytes of sensitive legal data ever escape the company intranet.
+1. On-Premise Private Inference:
+We deployed containerized open-weights LLMs (Llama 3 70B quantized) on air-gapped GPU clusters with strict perimeter firewalling. Zero bytes of sensitive legal data ever escape the company intranet.
 
-2. **Hybrid Semantic + Exact Keyword Search**:
-   Legal contracts require precision on clause numbers, dates, and indemnities. We blended:
-   * Dense vector embeddings via localized BGE models
-   * Sparse lexical BM25 search for alphanumeric contract IDs
-   * Cross-encoder re-ranking for the top 15 citations.
+2. Hybrid Semantic + Exact Keyword Search:
+Legal contracts require precision on clause numbers, dates, and indemnities. We blended dense vector embeddings via localized BGE models, sparse lexical BM25 search for alphanumeric contract IDs, and cross-encoder re-ranking for the top 15 citations.
 
-3. **Citation-Backed Verification**:
-   The assistant outputs every answer with clickable page citations and highlighted source text, ensuring legal teams can verify claims in seconds.
+3. Citation-Backed Verification:
+The assistant outputs every answer with clickable page citations and highlighted source text, ensuring legal teams can verify claims in seconds.
 
 ### Measurable ROI
-* **85% reduction** in contract discovery and clause extraction turnaround.
-* **Zero data leakage incidents** across 24 months of active corporate deployment.`,
+* 85% reduction in contract discovery and clause extraction turnaround.
+* Zero data leakage incidents across 24 months of active corporate deployment.`,
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
     tags: ['NeuralOps', 'Artificial Intelligence', 'Private RAG', 'Python', 'FastAPI', 'Case Study']
   },
@@ -503,18 +500,18 @@ An international distribution network suffered from fragmented warehouse spreads
 
 ### The Technical Solution
 
-1. **Headless Microservice Architecture**:
-   Powered by Next.js and high-throughput Node.js microservices, OmniTrade decoupled wholesale ordering from regional warehouse logistics.
+1. Headless Microservice Architecture:
+Powered by Next.js and high-throughput Node.js microservices, OmniTrade decoupled wholesale ordering from regional warehouse logistics.
 
-2. **Automated International Customs Compliance**:
-   By integrating harmonized tariff code APIs and automated PDF generation microservices, commercial export invoices and customs documentation generate instantaneously upon checkout.
+2. Automated International Customs Compliance:
+By integrating harmonized tariff code APIs and automated PDF generation microservices, commercial export invoices and customs documentation generate instantaneously upon checkout.
 
-3. **Live GPS Container Telemetry**:
-   Real-time integration with shipping container IoT beacons displays estimated delivery times with 99.4% accuracy.
+3. Live GPS Container Telemetry:
+Real-time integration with shipping container IoT beacons displays estimated delivery times with 99.4% accuracy.
 
 ### Business Outcomes
-* **75% faster order processing** from cart submission to warehouse dock dispatch.
-* **$2.8M annual operational expenditure savings** from eliminated inventory discrepancies.`,
+* 75% faster order processing from cart submission to warehouse dock dispatch.
+* $2.8M annual operational expenditure savings from eliminated inventory discrepancies.`,
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
     tags: ['OmniTrade', 'E-Commerce', 'NextJS', 'NodeJS', 'SupplyChain', 'Case Study']
   },
@@ -535,18 +532,18 @@ In heavy industrial manufacturing, an unplanned power transformer failure can co
 
 ### The SmartGrid Engineering Stack
 
-1. **MQTT Telemetry Ingestion at 15,000 Events/Sec**:
-   A distributed Go broker ingests sensor telemetry—including vibration harmonics, oil temperature, voltage fluctuations, and acoustic emissions—streaming into high-compression TimescaleDB tables.
+1. MQTT Telemetry Ingestion at 15,000 Events/Sec:
+A distributed Go broker ingests sensor telemetry—including vibration harmonics, oil temperature, voltage fluctuations, and acoustic emissions—streaming into high-compression TimescaleDB tables.
 
-2. **Machine Learning Anomaly Detection**:
-   Using autoencoder neural networks trained on historical failure data, the model detects subtle harmonic anomalies up to 48 hours before physical insulation breakdown occurs.
+2. Machine Learning Anomaly Detection:
+Using autoencoder neural networks trained on historical failure data, the model detects subtle harmonic anomalies up to 48 hours before physical insulation breakdown occurs.
 
-3. **Automated Peak-Load Shedding**:
-   The platform coordinates with factory programmable logic controllers (PLCs) to stagger non-essential workloads during peak tariff windows, avoiding utility penalty fees.
+3. Automated Peak-Load Shedding:
+The platform coordinates with factory programmable logic controllers (PLCs) to stagger non-essential workloads during peak tariff windows, avoiding utility penalty fees.
 
 ### Proven Metrics
-* **34% reduction in equipment downtime** over 12 months.
-* **$620,000 saved annually** in peak electric surcharges for our manufacturing client partner.`,
+* 34% reduction in equipment downtime over 12 months.
+* $620,000 saved annually in peak electric surcharges for our manufacturing client partner.`,
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
     tags: ['SmartGrid', 'IoT', 'Machine Learning', 'Go', 'TimescaleDB', 'Case Study']
   },
@@ -567,14 +564,14 @@ Traditional digital courses suffer from an average completion rate under 12%. Wh
 
 ### Architecture Highlights
 
-1. **Ephemeral Sandboxed Execution**:
-   Using lightweight WebAssembly and isolated Docker worker pods, student code evaluates safely within 300ms without risk to the host cluster.
+1. Ephemeral Sandboxed Execution:
+Using lightweight WebAssembly and isolated Docker worker pods, student code evaluates safely within 300ms without risk to the host cluster.
 
-2. **WebSockets Peer Study Rooms**:
-   Students collaborate in shared virtual classrooms with synchronized terminal cursors and live voice channels.
+2. WebSockets Peer Study Rooms:
+Students collaborate in shared virtual classrooms with synchronized terminal cursors and live voice channels.
 
-3. **Adaptive Skill Progression**:
-   Dynamic assessment engines recalibrate problem difficulty in real time based on compilation errors and time to solution.`,
+3. Adaptive Skill Progression:
+Dynamic assessment engines recalibrate problem difficulty in real time based on compilation errors and time to solution.`,
     image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80',
     tags: ['EduSphere', 'EdTech', 'Docker', 'WebSockets', 'React', 'Case Study']
   }

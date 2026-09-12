@@ -617,8 +617,8 @@ Most organizations begin their generative AI journey by connecting an OpenAI API
 
 ### 1. The Critical Importance of Chunking Strategy
 Generic token chunking splits critical context across boundaries. At Agnexa, we deploy semantic and hierarchical chunking:
-* **Hierarchical Chunking**: Parent-child document mapping preserving broad executive summaries with precise sub-clause detail.
-* **Metadata Tagging**: Enriching chunks with document version, department permissions, and creation timestamps before vector embedding.
+* Hierarchical Chunking: Parent-child document mapping preserving broad executive summaries with precise sub-clause detail.
+* Metadata Tagging: Enriching chunks with document version, department permissions, and creation timestamps before vector embedding.
 
 ### 2. Hybrid Search: Dense + Sparse Vectors
 Vector cosine similarity alone often fails on exact alphanumeric queries (e.g. part numbers, error codes, invoice identifiers). The gold standard in 2026 combines:
@@ -628,9 +628,9 @@ Vector cosine similarity alone often fails on exact alphanumeric queries (e.g. p
 
 ### 3. Enterprise Guardrails and Evaluation
 Never deploy an enterprise assistant without automated evaluation pipelines. We monitor:
-* **Context Relevance**: Is the retrieved data genuinely answering the prompt?
-* **Faithfulness**: Did the model formulate its answer *strictly* using the retrieved documents?
-* **Answer Relevance**: Did the user's explicit question get answered without tangential verbosity?
+* Context Relevance: Is the retrieved data genuinely answering the prompt?
+* Faithfulness: Did the model formulate its answer strictly using the retrieved documents?
+* Answer Relevance: Did the user's explicit question get answered without tangential verbosity?
 
 By institutionalizing these three pillars, modern enterprises turn unstructured data into an unshakeable competitive moat.`,
       image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
