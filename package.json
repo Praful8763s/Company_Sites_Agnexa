@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Full-Stack Enterprise IT Company Website for Agnexa Technologies (React, Vite, Node.js, Express, MongoDB, Three.js, Tailwind CSS)",
   "scripts": {
-    "dev": "npm run client",
+    "dev": "node dev.js",
+    "dev:all": "node dev.js",
     "client": "cd client && npm run dev",
     "server": "cd server && npm run dev",
     "build": "cd client && npm install && npm run build && cd ../server && npm install",

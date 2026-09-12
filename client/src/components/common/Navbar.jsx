@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, X, ChevronDown, ChevronRight, Sparkles, Code2, Globe, Smartphone, 
   Cloud, BarChart3, ShieldCheck, Palette, Compass, ArrowUpRight, LogIn, LayoutDashboard, LogOut,
-  FileSpreadsheet
+  FileSpreadsheet, UserPlus
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -265,13 +265,22 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <Link
-                to="/login"
-                className="px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors flex items-center space-x-1.5"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                <span>Client Login</span>
-              </Link>
+              <div className="flex items-center space-x-1.5">
+                <Link
+                  to="/register"
+                  className="px-3 py-2 text-xs font-semibold text-agnexa-orange-400 hover:text-white transition-colors flex items-center space-x-1.5"
+                >
+                  <UserPlus className="w-3.5 h-3.5" />
+                  <span>Register</span>
+                </Link>
+                <Link
+                  to="/login"
+                  className="px-3 py-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors flex items-center space-x-1.5"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Sign In</span>
+                </Link>
+              </div>
             )}
 
             <Link
@@ -368,12 +377,22 @@ export default function Navbar() {
                 </button>
               </>
             ) : (
-              <Link
-                to="/login"
-                className="w-full py-2.5 rounded-xl bg-white/5 border border-white/10 text-center text-sm font-semibold text-white"
-              >
-                Sign In to Client Portal
-              </Link>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  to="/register"
+                  className="py-2.5 rounded-xl bg-agnexa-orange-500/20 text-agnexa-orange-400 border border-agnexa-orange-500/40 text-center text-sm font-semibold hover:bg-agnexa-orange-500 hover:text-white transition-all flex items-center justify-center space-x-1"
+                >
+                  <UserPlus className="w-4 h-4" />
+                  <span>Register</span>
+                </Link>
+                <Link
+                  to="/login"
+                  className="py-2.5 rounded-xl bg-white/5 border border-white/10 text-center text-sm font-semibold text-white hover:bg-white/10 transition-all flex items-center justify-center space-x-1"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>Sign In</span>
+                </Link>
+              </div>
             )}
             <Link
               to="/contact"

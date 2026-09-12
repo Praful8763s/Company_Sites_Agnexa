@@ -625,10 +625,11 @@ ON CONFLICT (slug) DO UPDATE SET
   updated_at = NOW();
 
 -- ==============================================================================
--- SEED DATA: DEFAULT ADMIN USERS (Password: Admin@123)
+-- SEED DATA: DEFAULT ADMIN USER (Password: Praful@999s / Praful@786s)
 -- ==============================================================================
 INSERT INTO public.users (name, email, password, role, company)
 VALUES 
-    ($STR$Praful Sonwane$STR$, $STR$prafulsonwane58@gmail.com$STR$, $STR$$2a$10$iM.oG91E5BvC41bE4b6hCeo5Oq4Qh9g4FkMhX.H1/P1K6FmH94i8W$STR$, $STR$admin$STR$, $STR$Agnexa Technologies$STR$),
-    ($STR$Agnexa Super Admin$STR$, $STR$admin@agnexa.com$STR$, $STR$$2a$10$iM.oG91E5BvC41bE4b6hCeo5Oq4Qh9g4FkMhX.H1/P1K6FmH94i8W$STR$, $STR$admin$STR$, $STR$Agnexa Technologies$STR$)
-ON CONFLICT (email) DO NOTHING;
+    ($STR$Praful Sonwane$STR$, $STR$prafulsonwane58@gmail.com$STR$, $STR$$2a$10$MFOvyi8D/Rl6UJDlo53V6eyLXX8p82L88EKiDikf3jPSRkHCVIyoS$STR$, $STR$admin$STR$, $STR$Agnexa Technologies$STR$)
+ON CONFLICT (email) DO UPDATE SET 
+    password = EXCLUDED.password,
+    role = EXCLUDED.role;

@@ -137,7 +137,7 @@ npm run build
 | `/contact` | **Contact RFP** | High-converting consultation form with budget bands, timelines, and India HQ office info |
 | `/privacy-policy` | **Privacy Policy** | DPDP/GDPR-compliant data protection framework |
 | `/terms` | **Terms & Conditions**| Master service terms and intellectual property rights assignment |
-| `/login` | **Client Login** | JWT authentication with instant evaluation autofill buttons |
+| `/login` | **Client Login** | JWT authentication with secure credentials |
 | `/register` | **Register** | New client partner sign-up |
 | `/dashboard` | **Client Dashboard**| User consultation hub and direct solution lead escalations |
 | `/admin` | **Admin Console** | Executive analytics, inbound enquiry status tracking, subscriber registry, and full CRUD |

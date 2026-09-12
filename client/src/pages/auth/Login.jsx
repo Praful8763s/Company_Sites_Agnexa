@@ -35,15 +35,7 @@ export default function Login() {
     }
   };
 
-  const autofillAdmin = () => {
-    setEmail('admin@agnexa.com');
-    setPassword('Admin@123');
-  };
 
-  const autofillClient = () => {
-    setEmail('client@example.com');
-    setPassword('Admin@123');
-  };
 
   return (
     <div className="min-h-[85vh] flex items-center justify-center pt-24 pb-20 px-4">
@@ -111,26 +103,7 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Quick Demo Fill Pill Buttons */}
-        <div className="mt-6 pt-6 border-t border-white/10 space-y-2 text-center">
-          <span className="text-[11px] text-slate-400 block mb-2">Quick Evaluation Logins:</span>
-          <div className="flex gap-2 justify-center">
-            <button
-              type="button"
-              onClick={autofillAdmin}
-              className="px-3 py-1.5 rounded-lg bg-agnexa-orange-500/20 text-agnexa-orange-400 border border-agnexa-orange-500/40 text-[11px] font-semibold hover:bg-agnexa-orange-500 hover:text-white transition-all"
-            >
-              Autofill Admin (admin@agnexa.com)
-            </button>
-            <button
-              type="button"
-              onClick={autofillClient}
-              className="px-3 py-1.5 rounded-lg bg-agnexa-blue-500/20 text-agnexa-blue-400 border border-agnexa-blue-500/40 text-[11px] font-semibold hover:bg-agnexa-blue-500 hover:text-white transition-all"
-            >
-              Autofill Client
-            </button>
-          </div>
-        </div>
+
 
         <div className="mt-6 text-center text-xs text-slate-400">
           Don't have an account yet?{' '}

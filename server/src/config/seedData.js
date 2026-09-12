@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 
 export const getInitialData = () => {
   const salt = bcrypt.genSaltSync(10);
-  const hashedPassword = bcrypt.hashSync('Admin@123', salt);
+  const hashedPassword = bcrypt.hashSync('Praful@999s', salt);
 
   const users = [
     {
@@ -12,24 +12,6 @@ export const getInitialData = () => {
       password: hashedPassword,
       role: 'admin',
       company: 'Agnexa Technologies',
-      createdAt: new Date().toISOString()
-    },
-    {
-      _id: 'usr_admin_backup',
-      name: 'Agnexa Admin',
-      email: 'admin@agnexa.com',
-      password: hashedPassword,
-      role: 'admin',
-      company: 'Agnexa Technologies',
-      createdAt: new Date().toISOString()
-    },
-    {
-      _id: 'usr_demo_002',
-      name: 'Priya Sharma',
-      email: 'client@example.com',
-      password: hashedPassword,
-      role: 'user',
-      company: 'Apex Health Systems',
       createdAt: new Date().toISOString()
     }
   ];
