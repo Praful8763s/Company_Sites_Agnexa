@@ -612,15 +612,15 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-agnexa-orange-500/15 border border-agnexa-orange-500/30 text-xs font-bold text-agnexa-orange-500 dark:text-agnexa-orange-400 mb-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-agnexa-orange-500/15 border border-agnexa-orange-500/30 text-xs font-bold text-agnexa-orange-500 dark:text-agnexa-orange-400 mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>September 2026 Engineering Dispatches</span>
+              <span>Agnexa Engineering Dispatches</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
               Recent Case Studies & Architectural Insights
             </h2>
             <p className="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-2xl">
-              Deep technical breakdowns and results from our recent software architecture deliveries with dates starting September 20, 2026 and above.
+              Deep technical breakdowns, production metrics, and proven results from our recent enterprise software platform deliveries.
             </p>
           </div>
           <Link

@@ -42,15 +42,15 @@ export default function Blog() {
   return (
     <div className="relative pt-24 pb-20">
       <SEO 
-        title="Recent Project Case Studies & Technical Insights | Agnexa Technologies" 
-        description="Explore recent technical case studies, WebRTC telehealth scaling, high-frequency FinTech analytics, and private RAG architectures from September 20, 2026 and above."
+        title="Project Case Studies & Technical Insights | Agnexa Technologies" 
+        description="Explore technical case studies, WebRTC telehealth scaling, high-frequency FinTech analytics, and private RAG architectures from Agnexa Technologies."
       />
 
       {/* Hero Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 text-center">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-agnexa-orange-500/15 border border-agnexa-orange-500/30 text-xs font-semibold text-agnexa-orange-500 dark:text-agnexa-orange-400 mb-6">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Recent Case Studies • September 20, 2026 & Above</span>
+          <span>Agnexa Engineering Dispatch</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight">
