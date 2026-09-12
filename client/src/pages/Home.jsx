@@ -796,48 +796,48 @@ export default function Home() {
 
       {/* 14. CTA CONVERSION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="rounded-3xl p-10 sm:p-16 bg-gradient-to-r from-agnexa-navy-900 via-agnexa-blue-950 to-agnexa-navy-900 border border-agnexa-blue-500/40 text-center space-y-6 relative overflow-hidden shadow-neon-blue">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold">
+        <div className="rounded-3xl p-10 sm:p-16 bg-white dark:bg-gradient-to-r dark:from-agnexa-navy-900 dark:via-agnexa-blue-950 dark:to-agnexa-navy-900 border border-slate-200 dark:border-agnexa-blue-500/40 text-center space-y-6 relative overflow-hidden shadow-xl dark:shadow-neon-blue">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-agnexa-blue-50 dark:bg-white/10 text-agnexa-blue-600 dark:text-white border border-agnexa-blue-200 dark:border-white/15 text-xs font-semibold">
             <span>Ready To Turn Ideas Into Impact?</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white max-w-3xl mx-auto leading-tight">
             Let's Architect Your Next Breakthrough Software Platform
           </h2>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Schedule an introductory technical consultation with our engineering directors. Receive an architectural roadmap and feasibility assessment within 24 hours.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-agnexa-orange-500 to-agnexa-orange-400 hover:from-agnexa-orange-600 hover:to-agnexa-orange-500 text-white font-bold text-sm uppercase tracking-wider transition-all shadow-neon-orange hover:scale-105"
+              className="px-8 py-4 rounded-xl bg-gradient-to-r from-agnexa-orange-500 to-agnexa-orange-400 hover:from-agnexa-orange-600 hover:to-agnexa-orange-500 !text-white font-bold text-sm uppercase tracking-wider transition-all shadow-neon-orange hover:scale-105"
             >
               Start Your Project Consultation
             </Link>
             <Link
               to="/portfolio"
-              className="px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-sm transition-all"
+              className="px-8 py-4 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white font-semibold text-sm transition-all"
             >
               Explore Completed Work
             </Link>
           </div>
 
           {/* Direct Leadership & Location Contact Line */}
-          <div className="pt-8 border-t border-white/10 mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div className="pt-8 border-t border-slate-200 dark:border-white/10 mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-600 dark:text-slate-300">
             <div className="flex items-center justify-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-agnexa-orange-400" />
-              <span><strong>Founder & CEO:</strong> Praful Sonwane</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-agnexa-orange-500 flex-shrink-0" />
+              <span><strong className="text-slate-900 dark:text-white font-semibold">Founder & CEO:</strong> Praful Sonwane</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-agnexa-blue-400" />
-              <span><strong>Address:</strong> G 9 Agrawal Colony, Pithampur</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-agnexa-blue-600 flex-shrink-0" />
+              <span><strong className="text-slate-900 dark:text-white font-semibold">Address:</strong> G 9 Agrawal Colony, Pithampur</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <a href="tel:+919302433799" className="hover:text-white transition-colors">
-                <strong>Contact:</strong> +91 9302433799
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 flex-shrink-0" />
+              <a href="tel:+919302433799" className="text-slate-700 dark:text-slate-300 hover:text-agnexa-blue-600 dark:hover:text-white transition-colors">
+                <strong className="text-slate-900 dark:text-white font-semibold">Contact:</strong> +91 9302433799
               </a>
             </div>
           </div>
