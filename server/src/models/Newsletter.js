@@ -1,0 +1,24 @@
+import mongoose from 'mongoose';
+
+const newsletterSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: [true, 'Email address is required'],
+    unique: true,
+    lowercase: true,
+    trim: true,
+    match: [/^\S+@\S+\.\S+$/, 'Please provide a valid email address']
+  },
+  status: {
+    type: String,
+    enum: ['active', 'unsubscribed'],
+    default: 'active'
+  },
+  subscribedAt: {
+    type: Date,
+    default: Date.now
+  }
+}, { timestamps: true });
+
+export const Newsletter = mongoose.models.Newsletter || mongoose.model('Newsletter', newsletterSchema);
+export default Newsletter;

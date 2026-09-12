@@ -1,0 +1,26 @@
+{
+  "name": "agnexa-technologies-fullstack",
+  "version": "1.0.0",
+  "description": "Full-Stack Enterprise IT Company Website for Agnexa Technologies (React, Vite, Node.js, Express, MongoDB, Three.js, Tailwind CSS)",
+  "scripts": {
+    "dev": "npm run client",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "build": "cd client && npm install && npm run build && cd ../server && npm install",
+    "client:build": "cd client && npm run build",
+    "server:start": "cd server && npm start",
+    "start": "node server/src/server.js",
+    "install:all": "cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": [
+    "agnexa",
+    "enterprise-software",
+    "fullstack",
+    "react",
+    "nodejs",
+    "threejs",
+    "ai"
+  ],
+  "author": "Agnexa Technologies",
+  "license": "ISC"
+}
