@@ -1,6 +1,6 @@
 # Multi-Stage Production Dockerfile for Agnexa Technologies Full-Stack Website
 # Stage 1: Build the Vite Frontend Client
-FROM node:20-alpine AS client-builder
+FROM node:22-alpine AS client-builder
 WORKDIR /app/client
 
 COPY client/package*.json ./
@@ -10,7 +10,7 @@ COPY client/ ./
 RUN npm run build
 
 # Stage 2: Production Server Runner
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
