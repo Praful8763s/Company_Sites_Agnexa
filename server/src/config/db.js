@@ -401,7 +401,8 @@ export const dbStore = {
   blogs: new SupabaseCollection('blogs', initial.blogs),
   contacts: new SupabaseCollection('contacts', initial.contacts),
   newsletters: new SupabaseCollection('newsletters', initial.newsletters),
-  applications: new SupabaseCollection('applications', initial.applications)
+  applications: new SupabaseCollection('applications', initial.applications),
+  industries: new SupabaseCollection('industries', initial.industries || [])
 };
 
 export const connectDB = async () => {

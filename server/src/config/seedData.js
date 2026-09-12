@@ -828,5 +828,146 @@ For high-growth technology companies, React Native provides unparalleled deliver
     }
   ];
 
-  return { users, services, portfolio, blogs, contacts, newsletters, applications };
+  const industries = [
+    {
+      _id: 'ind_001',
+      id: 'fintech',
+      slug: 'fintech',
+      name: 'FinTech & Banking',
+      hash: '#fintech',
+      tagline: 'High-concurrency financial platforms, algorithmic trading feeds, and regulatory compliance.',
+      description: 'We engineer resilient, sub-millisecond financial architectures, algorithmic trading feeds, PCI-DSS tokenized vaults, and automated wealth management dashboards.',
+      challenges: 'Processing massive transaction volumes at sub-80ms latency, adhering to stringent RBI/PCI-DSS regulatory frameworks, preventing sophisticated financial fraud, and orchestrating multi-currency ledgers with absolute zero-drift.',
+      solutions: [
+        'High-throughput microservices event streaming with Go and Apache Kafka',
+        'PCI-DSS and SOC2 compliant biometric tokenized payment vaults',
+        'Automated fraud detection and anomaly scoring powered by machine learning',
+        'Real-time portfolio management and digital wallet integrations with automated tax-loss harvesting'
+      ],
+      technologies: ['Go', 'Apache Kafka', 'PostgreSQL', 'TimescaleDB', 'Redis', 'WebSockets', 'AWS Financial Cloud'],
+      metrics: [
+        { metric: '<80ms', label: 'Streaming Dashboard Latency' },
+        { metric: '$450M+', label: 'Client Capital Tracked' },
+        { metric: '99.99%', label: 'Reconciliation Accuracy' }
+      ],
+      relatedCaseStudy: 'finedge-wealth-analytics'
+    },
+    {
+      _id: 'ind_002',
+      id: 'healthcare',
+      slug: 'healthcare',
+      name: 'Healthcare & MedTech',
+      hash: '#healthcare',
+      tagline: 'HIPAA-compliant telehealth, electronic health records (EHR/EMR), and diagnostic workflows.',
+      description: 'Engineering enterprise telehealth platforms, encrypted WebRTC video suites, FHIR/HL7 clinical record exchange, and automated medical diagnostic pipelines.',
+      challenges: 'Strict HIPAA patient data privacy, legacy fragmented EHR systems, high-definition encrypted medical video streaming across unstable networks, and 24/7 mission-critical clinical availability.',
+      solutions: [
+        'End-to-end encrypted WebRTC audio/video telehealth consultation rooms',
+        'Bidirectional HL7/FHIR hospital electronic health record synchronization',
+        'AI-assisted medical image triage and automated diagnostic report extraction',
+        'Patient mobile engagement portals with digital prescription workflows'
+      ],
+      technologies: ['React.js', 'Node.js', 'WebRTC', 'HL7/FHIR', 'PostgreSQL', 'Redis', 'AWS HIPAA Cloud'],
+      metrics: [
+        { metric: '99.98%', label: 'Consultation Uptime SLA' },
+        { metric: '10,000+', label: 'Daily Video Consultations' },
+        { metric: '42%', label: 'Reduction in Patient Wait Times' }
+      ],
+      relatedCaseStudy: 'mediconnect-telehealth-platform'
+    },
+    {
+      _id: 'ind_003',
+      id: 'ecommerce',
+      slug: 'ecommerce',
+      name: 'E-Commerce & Retail',
+      hash: '#ecommerce',
+      tagline: 'Headless multi-vendor marketplaces, real-time inventory synchronization, and sub-second checkout.',
+      description: 'Designing high-converting headless digital storefronts, distributed multi-warehouse inventory sync, dynamic pricing engines, and global payment checkout.',
+      challenges: 'Sudden flash-sale traffic spikes causing server crashes, inventory drift across physical and digital channels, cart abandonment, and multi-currency international tax settlement.',
+      solutions: [
+        'Headless commerce storefronts built with Next.js delivering sub-second hydration',
+        'Distributed real-time multi-warehouse inventory locking with Redis and Kafka',
+        'AI-driven personalization and predictive bundle recommendation algorithms',
+        'Omnichannel payment orchestration supporting 130+ fiat currencies and Stripe Connect'
+      ],
+      technologies: ['Next.js', 'Node.js', 'MongoDB', 'Redis', 'Stripe Connect', 'Elasticsearch', 'Docker'],
+      metrics: [
+        { metric: '75%', label: 'Faster Order Processing' },
+        { metric: '99.4%', label: 'Inventory Record Accuracy' },
+        { metric: '180,000+', label: 'Monthly Transactions Processed' }
+      ],
+      relatedCaseStudy: 'omnitrade-supply-chain'
+    },
+    {
+      _id: 'ind_004',
+      id: 'logistics',
+      slug: 'logistics',
+      name: 'Logistics & Supply Chain',
+      hash: '#logistics',
+      tagline: 'End-to-end fleet telemetry, automated customs documentation, and predictive warehouse replenishment.',
+      description: 'Building intelligent supply chain architectures with real-time GPS fleet tracking, automated commercial export invoicing, and warehouse management systems.',
+      challenges: 'Manual paper-based border customs documentation causing 14-day delays, disconnected warehouse spreadsheets, fuel waste from unoptimized routing, and poor freight visibility.',
+      solutions: [
+        'Live GPS container telemetry integrated with shipping container IoT beacons',
+        'Automated commercial invoice and harmonized tariff customs documentation generation',
+        'Predictive stockout warning algorithms and warehouse inventory management (WMS)',
+        'Self-service client dispatch portals with milestone SMS and WhatsApp alerts'
+      ],
+      technologies: ['Go', 'Next.js', 'Google Maps API', 'TimescaleDB', 'Docker', 'Kubernetes', 'MQTT'],
+      metrics: [
+        { metric: '$2.8M', label: 'Annual Cost Savings' },
+        { metric: '14 Days -> 10 Mins', label: 'Customs Clearance Speed' },
+        { metric: '99.8%', label: 'Telemetry Tracking Accuracy' }
+      ],
+      relatedCaseStudy: 'omnitrade-supply-chain'
+    },
+    {
+      _id: 'ind_005',
+      id: 'edtech',
+      slug: 'edtech',
+      name: 'EdTech Platforms',
+      hash: '#edtech',
+      tagline: 'Interactive virtual classrooms, browser-based sandboxes, and gamified progress tracking.',
+      description: 'Engineering ultra-responsive interactive learning portals, in-browser code compilation sandboxes, live gamified quizzes, and collaborative virtual study rooms.',
+      challenges: 'Severe course completion drop-offs under 12%, passive video fatigue, high server expenses for sandboxed runtime execution, and grading latency.',
+      solutions: [
+        'Browser-based live code evaluation sandbox supporting 12 languages with WebAssembly',
+        'Interactive multiplayer quizzes with real-time leaderboard gamification',
+        'Adaptive AI learning pathways that dynamically recalibrate difficulty',
+        'Cryptographically verifiable graduation certificates and skill badges'
+      ],
+      technologies: ['React.js', 'Node.js', 'WebSockets', 'Docker Sandboxes', 'PostgreSQL', 'Tailwind CSS'],
+      metrics: [
+        { metric: '68%', label: 'Course Completion Rate' },
+        { metric: '250K+', label: 'Active Monthly Students' },
+        { metric: '3.2x', label: 'Increase in Daily Engagement' }
+      ],
+      relatedCaseStudy: 'edusphere-learning-platform'
+    },
+    {
+      _id: 'ind_006',
+      id: 'manufacturing',
+      slug: 'manufacturing',
+      name: 'Industry 4.0 & Smart IoT',
+      hash: '#manufacturing',
+      tagline: 'Industrial telemetry ingestion, predictive equipment maintenance, and factory automation.',
+      description: 'Architecting industrial IoT gateways, high-frequency sensor data ingestion, machine learning anomaly detection, and factory energy optimization.',
+      challenges: 'Noisy factory floor sensor environments, legacy unmonitored SCADA transformers, catastrophic equipment downtime costs, and high utility peak surcharges.',
+      solutions: [
+        'High-throughput MQTT broker ingesting 15,000 telemetry sensor events per second',
+        'Autoencoder machine learning models predicting transformer failure 48 hours early',
+        'Automated peak-load shedding coordinating with factory programmable logic controllers',
+        'Interactive Grafana executive dashboards for carbon offset and energy compliance'
+      ],
+      technologies: ['Go', 'TimescaleDB', 'MQTT', 'Python ML', 'React.js', 'Grafana', 'AWS IoT Core'],
+      metrics: [
+        { metric: '34%', label: 'Reduction in Equipment Downtime' },
+        { metric: '$620,000', label: 'Saved in Peak Surcharges' },
+        { metric: '48 hrs', label: 'Advance Failure Warning Notice' }
+      ],
+      relatedCaseStudy: 'smartgrid-iot-analytics'
+    }
+  ];
+
+  return { users, services, portfolio, blogs, contacts, newsletters, applications, industries };
 };

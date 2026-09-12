@@ -11,6 +11,7 @@ import portfolioRoutes from './routes/portfolioRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import industryRoutes from './routes/industryRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -72,6 +73,7 @@ app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/blog', blogRoutes);
 app.use('/api/careers', applicationRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/industries', industryRoutes);
 
 // Production Unified Static Client Serving & SPA Fallback
 const clientDistPath = path.resolve(__dirname, '../../client/dist');

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fallbackServices, fallbackPortfolio, fallbackBlogs } from '../data/fallbackData';
+import { fallbackServices, fallbackPortfolio, fallbackBlogs, fallbackIndustries } from '../data/fallbackData';
 
 const rawApiUrl = import.meta.env.VITE_API_URL;
 const resolvedBaseUrl = rawApiUrl 
@@ -148,6 +148,37 @@ export const blogApi = {
   create: (article) => api.post('/blog', article),
   update: (id, article) => api.put(`/blog/${id}`, article),
   delete: (id) => api.delete(`/blog/${id}`)
+};
+
+// Industries APIs
+export const industriesApi = {
+  getAll: async () => {
+    if (!shouldFetchLive) {
+      return { data: { success: true, industries: fallbackIndustries, count: fallbackIndustries.length } };
+    }
+    try {
+      const res = await api.get('/industries');
+      if (res.data && res.data.industries && res.data.industries.length > 0) return res;
+      return { data: { success: true, industries: fallbackIndustries, count: fallbackIndustries.length } };
+    } catch {
+      return { data: { success: true, industries: fallbackIndustries, count: fallbackIndustries.length } };
+    }
+  },
+  getBySlug: async (slug) => {
+    if (!shouldFetchLive) {
+      const found = fallbackIndustries.find(i => i.slug === slug || i.id === slug) || fallbackIndustries[0];
+      return { data: { success: true, industry: found } };
+    }
+    try {
+      const res = await api.get(`/industries/${slug}`);
+      if (res.data && res.data.industry) return res;
+      const found = fallbackIndustries.find(i => i.slug === slug || i.id === slug) || fallbackIndustries[0];
+      return { data: { success: true, industry: found } };
+    } catch {
+      const found = fallbackIndustries.find(i => i.slug === slug || i.id === slug) || fallbackIndustries[0];
+      return { data: { success: true, industry: found } };
+    }
+  }
 };
 
 // Careers & Applications APIs
