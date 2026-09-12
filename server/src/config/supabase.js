@@ -6,6 +6,8 @@ if (rawUrl && !/^https?:\/\//i.test(rawUrl)) {
   // If user entered e.g. "xyz.supabase.co", auto-prepend https://
   rawUrl = `https://${rawUrl}`;
 }
+// Automatically strip /rest/v1 or trailing slash if user pasted full REST endpoint
+rawUrl = rawUrl.replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
 
 const rawKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || '').trim();
 

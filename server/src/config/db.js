@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import { getInitialData } from './seedData.js';
 import { supabase, isSupabaseConfigured } from './supabase.js';
 import { pgPool, isPostgresConfigured, connectPostgres } from './postgres.js';
@@ -23,6 +22,19 @@ class SupabaseCollection {
     if (formatted._id && !formatted.id) formatted.id = formatted._id;
     if (formatted.created_at && !formatted.createdAt) formatted.createdAt = formatted.created_at;
     if (formatted.updated_at && !formatted.updatedAt) formatted.updatedAt = formatted.updated_at;
+    if (!formatted.industry && formatted.category) formatted.industry = formatted.category;
+    if (!formatted.category && formatted.industry) formatted.category = formatted.industry;
+    if (!formatted.clientName && formatted.client) formatted.clientName = formatted.client;
+    if (!formatted.client && formatted.clientName) formatted.client = formatted.clientName;
+    if (!formatted.image && formatted.imageCover) formatted.image = formatted.imageCover;
+    if (!formatted.imageCover && formatted.image) formatted.imageCover = formatted.image;
+    if (!formatted.date && formatted.createdAt) {
+      try {
+        formatted.date = new Date(formatted.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      } catch {
+        formatted.date = 'Recently';
+      }
+    }
     return formatted;
   }
 
@@ -396,30 +408,16 @@ export const connectDB = async () => {
   if (isPostgresConfigured) {
     const connected = await connectPostgres();
     if (connected) {
-      console.log('⚡ [Agnexa Backend] Direct PostgreSQL database provider activated.');
+      console.log('⚡ [Agnexa Backend] Direct PostgreSQL (Supabase) database provider connected.');
       return;
     }
   }
 
   if (isSupabaseConfigured) {
-    console.log('⚡ [Agnexa Backend] Supabase REST database provider activated.');
+    console.log('⚡ [Agnexa Backend] Supabase REST database provider connected.');
     return;
   }
 
-  const uri = process.env.MONGODB_URI;
-  if (!uri) {
-    console.log('⚡ [Agnexa Backend] Running with High-Speed Dual-Mode Storage.');
-    return;
-  }
-
-  try {
-    const conn = await mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 2500
-    });
-    console.log(`✅ [MongoDB Connected]: ${conn.connection.host}`);
-  } catch (error) {
-    console.warn(`ℹ️ [Database Notice]: MongoDB not connected (${error.message}).`);
-    console.log('⚡ [Agnexa Backend] Auto-fallback activated: Running with persistent high-speed data store.');
-  }
+  console.log('ℹ️ [Agnexa Backend] No Supabase credentials configured. Running with high-speed in-memory store.');
 };
 
