@@ -10,6 +10,14 @@ export default defineConfig({
         target: process.env.VITE_DEV_API_URL || 'http://127.0.0.1:5000',
         changeOrigin: true,
         secure: false,
+        configure: (proxy) => {
+          proxy.on('error', (err, _req, res) => {
+            if (res && !res.headersSent) {
+              res.writeHead(503, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ success: false, fallback: true, error: 'Backend API temporarily unavailable' }));
+            }
+          });
+        }
       }
     }
   },

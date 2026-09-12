@@ -3,9 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, X, ChevronDown, ChevronRight, Sparkles, Code2, Globe, Smartphone, 
   Cloud, BarChart3, ShieldCheck, Palette, Compass, ArrowUpRight, LogIn, LayoutDashboard, LogOut,
-  FileSpreadsheet, UserPlus
+  FileSpreadsheet, UserPlus, Sun, Moon
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const servicesList = [
   {
@@ -79,6 +80,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, isAdmin, logout } = useAuth();
+  const { theme, isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -266,6 +268,21 @@ export default function Navbar() {
               </div>
             )}
 
+            {/* Dark / Light Theme Toggle */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
+              className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-agnexa-blue-400/50 hover:bg-white/10 transition-all flex items-center justify-center text-slate-300 hover:text-white"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-agnexa-blue-500" />
+              )}
+            </button>
+
             <Link
               to="/contact"
               className="relative group overflow-hidden rounded-xl px-5 py-2.5 bg-gradient-to-r from-agnexa-blue-500 to-agnexa-blue-400 text-white text-xs uppercase tracking-wider font-bold shadow-neon-blue hover:shadow-lg transition-all hover:scale-105 active:scale-95"
@@ -278,8 +295,17 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu & Theme Controls */}
           <div className="flex lg:hidden items-center space-x-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
+              className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-agnexa-blue-500" />}
+            </button>
             <Link
               to="/contact"
               className="px-3 py-1.5 rounded-lg bg-agnexa-blue-500 text-white text-xs font-bold"
@@ -360,6 +386,17 @@ export default function Navbar() {
                 </button>
               </>
             )}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="w-full py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-200 text-sm font-semibold flex items-center justify-between hover:bg-white/10 transition-all"
+            >
+              <span className="flex items-center space-x-2">
+                {isDark ? <Moon className="w-4 h-4 text-agnexa-blue-400" /> : <Sun className="w-4 h-4 text-amber-400" />}
+                <span>{isDark ? 'Dark Mode' : 'Light Mode'}</span>
+              </span>
+              <span className="text-xs text-agnexa-blue-400 font-bold uppercase tracking-wider">Switch Theme</span>
+            </button>
             <Link
               to="/contact"
               className="w-full py-2.5 rounded-xl bg-gradient-to-r from-agnexa-blue-500 to-agnexa-orange-500 text-center text-sm font-bold text-white shadow-neon-blue"

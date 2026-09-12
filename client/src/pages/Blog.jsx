@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { blogApi } from '../services/api';
+import { fallbackBlogs } from '../data/fallbackData';
 import BlogCard from '../components/cards/BlogCard';
 import SEO from '../components/common/SEO';
 import { Sparkles, Search } from 'lucide-react';
 
 export default function Blog() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState(fallbackBlogs);
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -14,7 +15,7 @@ export default function Blog() {
     const fetchBlogs = async () => {
       try {
         const res = await blogApi.getAll();
-        if (res.data.blogs) {
+        if (res.data.blogs && res.data.blogs.length > 0) {
           setBlogs(res.data.blogs);
         }
       } catch (err) {
@@ -41,23 +42,23 @@ export default function Blog() {
   return (
     <div className="relative pt-24 pb-20">
       <SEO 
-        title="Engineering Blog & Insights" 
-        description="Technical insights, Generative AI architectural blueprints, and cloud modernization strategies from Agnexa Technologies engineering team."
+        title="Recent Project Case Studies & Technical Insights | Agnexa Technologies" 
+        description="Explore recent technical case studies, WebRTC telehealth scaling, high-frequency FinTech analytics, and private RAG architectures from September 20, 2026 and above."
       />
 
       {/* Hero Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 text-center">
-        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-agnexa-blue-400 mb-6">
-          <Sparkles className="w-3.5 h-3.5 text-agnexa-orange-400" />
-          <span>Agnexa Engineering Dispatch</span>
+        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-agnexa-orange-500/15 border border-agnexa-orange-500/30 text-xs font-semibold text-agnexa-orange-500 dark:text-agnexa-orange-400 mb-6">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Recent Case Studies • September 20, 2026 & Above</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
-          Engineering Thought Leadership & <span className="text-gradient-brand">Technical Insights</span>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight">
+          Recent Project Case Studies & <span className="text-gradient-brand">Technical Insights</span>
         </h1>
 
-        <p className="text-slate-300 text-base sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
-          Deep-dives into production RAG systems, microservices architectures, cloud migrations, and modern security patterns written by our practicing engineers.
+        <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+          Architectural deep-dives, production performance metrics, and technical benchmarks from our latest software platform deliveries.
         </p>
 
         {/* Filter and Search */}

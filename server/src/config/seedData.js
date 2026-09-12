@@ -469,6 +469,140 @@ export const getInitialData = () => {
 
   const blogs = [
     {
+      _id: 'blg_proj_001',
+      title: 'Architecting MediConnect: How We Scaled HIPAA-Compliant WebRTC Video to 10,000+ Daily Consultations',
+      slug: 'architecting-mediconnect-telehealth-webrtc',
+      category: 'Project Case Study',
+      author: 'Praful Sonwane, Lead System Architect',
+      date: 'September 25, 2026',
+      readTime: '6 min read',
+      excerpt: 'Deep-dive architectural breakdown of our MediConnect healthcare project: end-to-end encrypted WebRTC video streaming, EHR synchronization, and 99.98% consultation uptime.',
+      content: `### The Challenge: Sub-Second Encrypted Telehealth at Scale
+When engineering MediConnect, the primary objective was establishing a resilient medical consultation platform that complied with strict HIPAA security requirements while supporting over 10,000 simultaneous video sessions across 45 clinics with zero latency drops.
+
+### Architectural Blueprint
+1. Signaling & Selective Forwarding Units (SFU): MediaSoup / Janus elastic clusters.
+2. End-to-End Encryption (E2EE): SRTP with dynamic per-room key generation.
+3. Synchronous HL7/FHIR Health Record Linking via Kafka event streaming.
+
+### Quantifiable Results
+* 99.98% Uptime SLA maintained across 6 consecutive quarters.
+* Patient wait times decreased by 42% through automated doctor availability scheduling.`,
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+      tags: ['MediConnect', 'Healthcare', 'WebRTC', 'React', 'HIPAA', 'Case Study']
+    },
+    {
+      _id: 'blg_proj_002',
+      title: 'High-Frequency FinTech: Engineering FinEdge with Sub-80ms WebSocket Analytics and Kafka Pipelines',
+      slug: 'engineering-finedge-realtime-wealth-analytics',
+      category: 'Project Case Study',
+      author: 'Vikramaditya Rao, Principal Cloud Architect',
+      date: 'September 24, 2026',
+      readTime: '7 min read',
+      excerpt: 'Inside the FinEdge wealth analytics engine: how Agnexa achieved <80ms dashboard latency, automated tax-loss harvesting, and tracked $450M+ in capital with zero security flaws.',
+      content: `### The Challenge: Eliminating Lag in High-Net-Worth Portfolio Tracking
+Modern institutional investors manage diversified portfolios spanning stocks, crypto derivatives, and commodities. Legacy banking dashboards routinely refresh data every 5 to 15 minutes, which is completely unacceptable for high-frequency trade management.
+
+### The FinEdge Solution Architecture
+1. Sub-80ms Streaming with TimescaleDB hypertables and WebSockets.
+2. Automated Tax-Loss Harvesting Engine built in Go.
+3. Military-Grade Biometric MFA authentication.
+
+### Key Milestones
+* $450M+ in platform assets tracked with zero discrepancy.
+* Zero reported security vulnerabilities across audits.`,
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
+      tags: ['FinEdge', 'FinTech', 'TimescaleDB', 'WebSockets', 'Go', 'Case Study']
+    },
+    {
+      _id: 'blg_proj_003',
+      title: 'NeuralOps: Building an On-Premises Private RAG Assistant for 2 Million Legal Documents',
+      slug: 'neuralops-private-rag-legal-documents',
+      category: 'Project Case Study',
+      author: 'Rajiv Menon, Head of AI Engineering',
+      date: 'September 23, 2026',
+      readTime: '8 min read',
+      excerpt: 'How we built NeuralOps to cut contract review time by 85% across 2M+ confidential corporate contracts using local LLM inference and hybrid vector retrieval.',
+      content: `### The Challenge: Enterprise Knowledge Without Data Privacy Risks
+Our client, a multinational corporate advisory group, possessed over 2 million confidential legal contracts. Searching for specific liabilities took lawyers 4+ hours daily. NDAs prohibited feeding these documents to commercial cloud AI APIs.
+
+### The NeuralOps Architecture
+1. On-Premise Private Inference with quantized Llama 3 on air-gapped GPU clusters.
+2. Hybrid Semantic + Exact Keyword Search (Dense embeddings + BM25 lexical + Cross-encoder re-ranking).
+3. Citation-backed verification with highlighted source page coordinates.
+
+### Measurable ROI
+* 85% reduction in contract discovery and clause extraction turnaround.
+* Zero data leakage incidents.`,
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
+      tags: ['NeuralOps', 'Artificial Intelligence', 'Private RAG', 'Python', 'FastAPI', 'Case Study']
+    },
+    {
+      _id: 'blg_proj_004',
+      title: 'Modernizing OmniTrade: Headless B2B Supply Chain & Automated Customs Invoicing',
+      slug: 'omnitrade-headless-supply-chain-modernization',
+      category: 'Project Case Study',
+      author: 'Ananya Deshmukh, Frontend Engineering Lead',
+      date: 'September 22, 2026',
+      readTime: '6 min read',
+      excerpt: 'Overcoming supply chain delays: how OmniTrade automated customs clearing and integrated multi-warehouse inventory across 180,000 monthly transactions.',
+      content: `### The Challenge: 14-Day Freight Invoicing Delays
+An international distribution network suffered from fragmented warehouse spreadsheets, resulting in stockouts and manual customs documentation that delayed shipments at customs for up to two weeks.
+
+### The Technical Solution
+1. Headless Microservice Architecture with Next.js and high-throughput Node.js microservices.
+2. Automated International Customs Compliance with instant PDF export generation.
+3. Live GPS Container Telemetry integrated with shipping container IoT beacons.
+
+### Business Outcomes
+* 75% faster order processing.
+* $2.8M annual operational cost savings.`,
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+      tags: ['OmniTrade', 'E-Commerce', 'NextJS', 'NodeJS', 'SupplyChain', 'Case Study']
+    },
+    {
+      _id: 'blg_proj_005',
+      title: 'SmartGrid IoT: Processing 15,000 Telemetry Events/Sec with Predictive ML Anomaly Detection',
+      slug: 'smartgrid-iot-telemetry-anomaly-detection',
+      category: 'Project Case Study',
+      author: 'Siddharth Nair, Staff Backend Engineer',
+      date: 'September 21, 2026',
+      readTime: '7 min read',
+      excerpt: 'Engineering industrial IoT for heavy manufacturing: predicting transformer faults 48 hours early to prevent catastrophic factory blackouts.',
+      content: `### The High-Stakes Reality of Industrial Energy
+In heavy industrial manufacturing, an unplanned power transformer failure can cost upwards of $100,000 per hour in idle machinery and emergency repairs.
+
+### The SmartGrid Engineering Stack
+1. MQTT Telemetry Ingestion at 15,000 Events/Sec into TimescaleDB.
+2. Machine Learning Anomaly Detection predicting faults 48 hours in advance.
+3. Automated Peak-Load Shedding coordinating with factory PLCs.
+
+### Proven Metrics
+* 34% reduction in equipment downtime.
+* $620,000 saved annually in peak electric surcharges.`,
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+      tags: ['SmartGrid', 'IoT', 'Machine Learning', 'Go', 'TimescaleDB', 'Case Study']
+    },
+    {
+      _id: 'blg_proj_006',
+      title: 'EduSphere Interactive Sandbox: Scaling Real-Time Gamified Learning Platforms',
+      slug: 'edusphere-interactive-code-sandbox',
+      category: 'Project Case Study',
+      author: 'Rajiv Menon, Head of AI Engineering',
+      date: 'September 20, 2026',
+      readTime: '6 min read',
+      excerpt: 'Architecting an interactive browser sandbox for 250,000+ students with isolated Docker runtime environments and sub-second code compilation.',
+      content: `### Interactive Learning at Global Scale
+Traditional digital courses suffer from an average completion rate under 12%. When EduSphere approached Agnexa, the goal was creating an ultra-responsive code sandbox running 12 programming languages directly in the browser with 60 FPS feedback and real-time multiplayer peer collaboration.
+
+### Architecture Highlights
+1. Ephemeral Sandboxed Execution via lightweight WebAssembly and isolated Docker workers.
+2. WebSockets Peer Study Rooms with synchronized terminal cursors.
+3. Adaptive Skill Progression recalibrating difficulty in real time.`,
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80',
+      tags: ['EduSphere', 'EdTech', 'Docker', 'WebSockets', 'React', 'Case Study']
+    },
+    {
       _id: 'blg_001',
       title: 'The Enterprise Guide to Building Production-Ready RAG Systems in 2026',
       slug: 'enterprise-rag-systems-2026',

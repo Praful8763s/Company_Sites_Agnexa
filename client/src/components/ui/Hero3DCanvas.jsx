@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Hero3DCanvas() {
   const mountRef = useRef(null);
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
 
   useEffect(() => {
     const currentMount = mountRef.current;
@@ -28,11 +31,11 @@ export default function Hero3DCanvas() {
     // 1. Central Icosahedron Wireframe Core (The AI/Tech Core)
     const coreGeometry = new THREE.IcosahedronGeometry(5.2, 1);
     const coreMaterial = new THREE.MeshStandardMaterial({
-      color: 0x1261FF,
+      color: isLight ? 0x0047BA : 0x1261FF,
       wireframe: true,
-      emissive: 0x071A3D,
-      roughness: 0.2,
-      metalness: 0.9,
+      emissive: isLight ? 0x021B42 : 0x071A3D,
+      roughness: isLight ? 0.1 : 0.2,
+      metalness: isLight ? 0.95 : 0.9,
     });
     const coreMesh = new THREE.Mesh(coreGeometry, coreMaterial);
     mainGroup.add(coreMesh);
@@ -40,10 +43,10 @@ export default function Hero3DCanvas() {
     // 2. Inner Glowing Core (Orange Energy)
     const innerGeometry = new THREE.OctahedronGeometry(2.6, 0);
     const innerMaterial = new THREE.MeshStandardMaterial({
-      color: 0xFF6A00,
-      emissive: 0xFF6A00,
-      emissiveIntensity: 0.6,
-      roughness: 0.3,
+      color: isLight ? 0xD84315 : 0xFF6A00,
+      emissive: isLight ? 0xE65100 : 0xFF6A00,
+      emissiveIntensity: isLight ? 0.9 : 0.6,
+      roughness: 0.2,
       metalness: 0.8,
       wireframe: true
     });
@@ -51,13 +54,14 @@ export default function Hero3DCanvas() {
     mainGroup.add(innerMesh);
 
     // 3. Floating Particle Cloud
-    const particleCount = 350;
+    const particleCount = 380;
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const blueColor = new THREE.Color(0x18A8FF);
-    const orangeColor = new THREE.Color(0xFF6A00);
+    // High contrast saturated colors in light theme, neon emissive in dark theme
+    const blueColor = isLight ? new THREE.Color(0x0052CC) : new THREE.Color(0x18A8FF);
+    const orangeColor = isLight ? new THREE.Color(0xD84315) : new THREE.Color(0xFF6A00);
 
     for (let i = 0; i < particleCount; i++) {
       const radius = 6.5 + Math.random() * 5.5;
@@ -68,7 +72,7 @@ export default function Hero3DCanvas() {
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
 
-      const mixedColor = Math.random() > 0.4 ? blueColor : orangeColor;
+      const mixedColor = Math.random() > 0.45 ? blueColor : orangeColor;
       colors[i * 3] = mixedColor.r;
       colors[i * 3 + 1] = mixedColor.g;
       colors[i * 3 + 2] = mixedColor.b;
@@ -77,48 +81,51 @@ export default function Hero3DCanvas() {
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
+    // In Light mode, NormalBlending ensures particles stay crisp and saturated against white
     const particleMaterial = new THREE.PointsMaterial({
-      size: 0.16,
+      size: isLight ? 0.22 : 0.16,
       vertexColors: true,
       transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending
+      opacity: isLight ? 0.95 : 0.85,
+      blending: isLight ? THREE.NormalBlending : THREE.AdditiveBlending
     });
 
     const particleCloud = new THREE.Points(particleGeometry, particleMaterial);
     mainGroup.add(particleCloud);
 
     // 4. Orbital Torus Rings
+    const ringGeo1 = new THREE.TorusGeometry(8.2, isLight ? 0.07 : 0.04, 16, 100);
     const ringMaterial1 = new THREE.MeshBasicMaterial({
-      color: 0x18A8FF,
+      color: isLight ? 0x0047BA : 0x18A8FF,
       wireframe: true,
       transparent: true,
-      opacity: 0.4
+      opacity: isLight ? 0.85 : 0.4
     });
-    const ring1 = new THREE.Mesh(new THREE.TorusGeometry(8.2, 0.04, 16, 100), ringMaterial1);
+    const ring1 = new THREE.Mesh(ringGeo1, ringMaterial1);
     ring1.rotation.x = Math.PI / 3;
     mainGroup.add(ring1);
 
+    const ringGeo2 = new THREE.TorusGeometry(9.6, isLight ? 0.07 : 0.04, 16, 100);
     const ringMaterial2 = new THREE.MeshBasicMaterial({
-      color: 0xFF6A00,
+      color: isLight ? 0xD84315 : 0xFF6A00,
       wireframe: true,
       transparent: true,
-      opacity: 0.4
+      opacity: isLight ? 0.85 : 0.4
     });
-    const ring2 = new THREE.Mesh(new THREE.TorusGeometry(9.6, 0.04, 16, 100), ringMaterial2);
+    const ring2 = new THREE.Mesh(ringGeo2, ringMaterial2);
     ring2.rotation.y = Math.PI / 4;
     ring2.rotation.x = -Math.PI / 6;
     mainGroup.add(ring2);
 
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    const ambientLight = new THREE.AmbientLight(0xffffff, isLight ? 1.6 : 0.8);
     scene.add(ambientLight);
 
-    const blueLight = new THREE.PointLight(0x1261FF, 4, 50);
+    const blueLight = new THREE.PointLight(isLight ? 0x0052CC : 0x1261FF, isLight ? 6 : 4, 60);
     blueLight.position.set(10, 10, 10);
     scene.add(blueLight);
 
-    const orangeLight = new THREE.PointLight(0xFF6A00, 3, 50);
+    const orangeLight = new THREE.PointLight(isLight ? 0xD84315 : 0xFF6A00, isLight ? 5 : 3, 60);
     orangeLight.position.set(-10, -10, 10);
     scene.add(orangeLight);
 
@@ -196,8 +203,12 @@ export default function Hero3DCanvas() {
       innerMaterial.dispose();
       particleGeometry.dispose();
       particleMaterial.dispose();
+      ringGeo1.dispose();
+      ringMaterial1.dispose();
+      ringGeo2.dispose();
+      ringMaterial2.dispose();
     };
-  }, []);
+  }, [theme, isLight]);
 
   return (
     <div 

@@ -11,6 +11,7 @@ import ProjectCard from '../components/cards/ProjectCard';
 import BlogCard from '../components/cards/BlogCard';
 import Hero3DCanvas from '../components/ui/Hero3DCanvas';
 import { TechLogo } from '../components/icons/TechLogos';
+import { fallbackBlogs } from '../data/fallbackData';
 import SEO from '../components/common/SEO';
 
 export default function Home() {
@@ -217,7 +218,7 @@ export default function Home() {
           <div className="lg:col-span-5 relative flex items-center justify-center">
             
             {/* 3D Visual Glass Frame with Three.js WebGL Canvas */}
-            <div className="relative w-full max-w-lg aspect-square rounded-3xl bg-gradient-to-b from-agnexa-navy-850/80 to-agnexa-navy-950/90 border border-white/15 shadow-2xl backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden group">
+            <div className="relative w-full max-w-lg aspect-square rounded-3xl bg-white/70 dark:bg-gradient-to-b dark:from-agnexa-navy-850/80 dark:to-agnexa-navy-950/90 border border-slate-200/80 dark:border-white/15 shadow-2xl backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden group">
               <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
               
               {/* Interactive 3D WebGL Canvas */}
@@ -227,36 +228,36 @@ export default function Home() {
 
               {/* Centered Brand Emblem (Floating over 3D Core) */}
               <div className="relative z-10 pointer-events-none flex flex-col items-center animate-float">
-                <div className="w-24 h-24 rounded-2xl bg-agnexa-navy-950/90 border border-white/20 p-3.5 shadow-neon-blue backdrop-blur-md flex items-center justify-center">
+                <div className="w-24 h-24 rounded-2xl bg-white/95 dark:bg-agnexa-navy-950/90 border border-slate-200 dark:border-white/20 p-3.5 shadow-lg dark:shadow-neon-blue backdrop-blur-md flex items-center justify-center">
                   <img src="/logo.png" alt="Agnexa Logo" className="w-full h-full object-contain" />
                 </div>
-                <div className="mt-3 px-3 py-1 rounded-full bg-agnexa-navy-950/90 border border-white/15 backdrop-blur-md text-center">
-                  <span className="font-extrabold text-xs text-white tracking-widest">AGNEXA TECHNOLOGIES</span>
-                  <p className="text-[9px] uppercase tracking-[0.25em] text-agnexa-orange-400 font-bold">Ideas to Impact</p>
+                <div className="mt-3 px-3 py-1 rounded-full bg-white/95 dark:bg-agnexa-navy-950/90 border border-slate-200 dark:border-white/15 shadow-md backdrop-blur-md text-center">
+                  <span className="font-extrabold text-xs text-slate-900 dark:text-white tracking-widest">AGNEXA TECHNOLOGIES</span>
+                  <p className="text-[9px] uppercase tracking-[0.25em] text-agnexa-orange-500 font-bold">Ideas to Impact</p>
                 </div>
               </div>
 
               {/* Floating Card 1: AI Model Stream */}
-              <div className="absolute top-6 left-6 z-20 p-3 rounded-xl bg-agnexa-navy-950/90 border border-agnexa-blue-400/40 backdrop-blur-md shadow-lg flex items-center space-x-2.5 animate-float pointer-events-none">
-                <Sparkles className="w-4 h-4 text-agnexa-blue-400" />
+              <div className="absolute top-6 left-6 z-20 p-3 rounded-xl bg-white/95 dark:bg-agnexa-navy-950/90 border border-agnexa-blue-500/40 backdrop-blur-md shadow-lg flex items-center space-x-2.5 animate-float pointer-events-none">
+                <Sparkles className="w-4 h-4 text-agnexa-blue-500 dark:text-agnexa-blue-400" />
                 <div className="text-left">
-                  <div className="text-[10px] text-slate-400">RAG AI Engine</div>
-                  <div className="text-xs font-bold text-white">45ms Vector Latency</div>
+                  <div className="text-[10px] text-slate-500 dark:text-slate-400">RAG AI Engine</div>
+                  <div className="text-xs font-bold text-slate-900 dark:text-white">45ms Vector Latency</div>
                 </div>
               </div>
 
               {/* Floating Card 2: Cloud Health */}
-              <div className="absolute bottom-6 right-6 z-20 p-3 rounded-xl bg-agnexa-navy-950/90 border border-agnexa-orange-400/40 backdrop-blur-md shadow-lg flex items-center space-x-2.5 animate-float-reverse pointer-events-none">
-                <Server className="w-4 h-4 text-agnexa-orange-400" />
+              <div className="absolute bottom-6 right-6 z-20 p-3 rounded-xl bg-white/95 dark:bg-agnexa-navy-950/90 border border-agnexa-orange-500/40 backdrop-blur-md shadow-lg flex items-center space-x-2.5 animate-float-reverse pointer-events-none">
+                <Server className="w-4 h-4 text-agnexa-orange-500 dark:text-agnexa-orange-400" />
                 <div className="text-left">
-                  <div className="text-[10px] text-slate-400">Multi-Cloud Mesh</div>
-                  <div className="text-xs font-bold text-emerald-400">Healthy (99.98%)</div>
+                  <div className="text-[10px] text-slate-500 dark:text-slate-400">Multi-Cloud Mesh</div>
+                  <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Healthy (99.98%)</div>
                 </div>
               </div>
 
               {/* Floating Card 3: Interactive 3D Cue */}
-              <div className="absolute bottom-6 left-6 z-20 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-md text-[10px] text-slate-400 flex items-center space-x-1.5 pointer-events-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-agnexa-orange-400 animate-ping" />
+              <div className="absolute bottom-6 left-6 z-20 px-2.5 py-1.5 rounded-lg bg-white/90 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-md text-[10px] text-slate-600 dark:text-slate-400 flex items-center space-x-1.5 pointer-events-none shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-agnexa-orange-500 animate-ping" />
                 <span>Move cursor to orbit 3D core</span>
               </div>
             </div>
@@ -603,6 +604,37 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, idx) => (
             <ProjectCard key={project.slug || idx} project={project} />
+          ))}
+        </div>
+      </section>
+
+      {/* 8.5. RECENT PROJECT CASE STUDIES & INSIGHTS (September 20, 2026 & Above) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
+          <div>
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-agnexa-orange-500/15 border border-agnexa-orange-500/30 text-xs font-bold text-agnexa-orange-500 dark:text-agnexa-orange-400 mb-3">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>September 2026 Engineering Dispatches</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+              Recent Case Studies & Architectural Insights
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-2xl">
+              Deep technical breakdowns and results from our recent software architecture deliveries with dates starting September 20, 2026 and above.
+            </p>
+          </div>
+          <Link
+            to="/blog"
+            className="text-xs font-bold text-agnexa-blue-500 dark:text-agnexa-blue-400 hover:underline flex items-center space-x-1"
+          >
+            <span>Explore all case study insights</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {(latestBlogs.length > 0 ? latestBlogs : fallbackBlogs.slice(0, 3)).map((blog, idx) => (
+            <BlogCard key={blog.slug || idx} blog={blog} />
           ))}
         </div>
       </section>
