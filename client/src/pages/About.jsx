@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, Sparkles, Target, Compass, Award, CheckCircle2, 
-  ArrowRight, Users, Globe2, HeartHandshake, Cpu, Layers, ExternalLink 
+  ArrowRight, Users, Globe2, HeartHandshake, Cpu, Layers 
 } from 'lucide-react';
 import SEO from '../components/common/SEO';
 
@@ -234,28 +234,6 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Strategic Alliance & Ecosystem */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/10">
-        <div className="p-8 sm:p-10 rounded-3xl glass-card flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-agnexa-blue-500">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-bold uppercase tracking-widest text-agnexa-orange-400">Strategic Technology Alliance</span>
-            <h3 className="text-2xl font-bold text-white">Partner Company of Zsyio Technologies</h3>
-            <p className="text-slate-300 text-sm max-w-2xl leading-relaxed">
-              Agnexa Technologies collaborates with <strong>Zsyio Technologies</strong> to deliver end-to-end enterprise architectures, distributed cloud deployments, and resilient engineering ecosystems worldwide.
-            </p>
-          </div>
-          <a
-            href="https://zsyio.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-xs tracking-wider transition-all shadow-md shrink-0 group hover:border-agnexa-blue-400"
-          >
-            <span>Visit zsyio.com</span>
-            <ExternalLink className="w-4 h-4 text-agnexa-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
         </div>
       </section>
 

@@ -206,41 +206,6 @@ export default function Contact() {
                 <span className="text-emerald-400 font-semibold">● Active Operations</span>
               </div>
             </div>
-
-            {/* Strategic Partner Company Card */}
-            <div className="p-6 rounded-3xl glass-card relative overflow-hidden bg-gradient-to-br from-agnexa-navy-900/90 to-agnexa-navy-850/90 border border-agnexa-blue-500/30 shadow-neon-blue">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-agnexa-orange-400">Strategic Partner Company</span>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold border border-emerald-500/20">
-                  Verified Partner
-                </span>
-              </div>
-              
-              <div className="flex items-start space-x-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-agnexa-navy-950 border border-white/15 p-2 flex items-center justify-center shrink-0 shadow-md">
-                  <Globe className="w-6 h-6 text-agnexa-blue-400" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-white leading-tight">Zsyio Technologies</h4>
-                  <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                    Agnexa Technologies is proud to be a partner company of <strong>Zsyio Technologies</strong>, co-engineering advanced digital capabilities and global software architectures.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs text-slate-400">Official Partner Website:</span>
-                <a
-                  href="https://zsyio.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-agnexa-blue-500/20 hover:bg-agnexa-blue-500/30 text-agnexa-blue-300 hover:text-white border border-agnexa-blue-400/40 text-xs font-bold transition-all"
-                >
-                  <span>zsyio.com</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Full Enterprise Contact Form */}

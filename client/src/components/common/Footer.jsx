@@ -204,10 +204,6 @@ export default function Footer() {
             <div>
               © 2026 <span className="text-slate-900 dark:text-white font-semibold">Agnexa Technologies</span>. All rights reserved.
             </div>
-            <span className="hidden sm:inline text-slate-400">•</span>
-            <div>
-              Partner Company: <a href="https://zsyio.com" target="_blank" rel="noopener noreferrer" className="text-agnexa-blue-600 dark:text-agnexa-blue-400 hover:underline font-medium">Zsyio Technologies (zsyio.com)</a>
-            </div>
           </div>
           <div className="flex items-center space-x-6 font-medium">
             <Link to="/privacy-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</Link>
